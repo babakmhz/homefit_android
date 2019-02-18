@@ -13,6 +13,7 @@ app/src/main/java/alrefa/android/com/homefit/Utils/AppConstants.java
 *.iml
 .gradle
 /local.properties
+notes.txt
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml

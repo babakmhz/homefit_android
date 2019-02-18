@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|top"
+    android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
+    android:layout_marginTop="@dimen/main_act_main_title_margin_top"
+    android:layout_marginEnd="@dimen/main_act_main_title_default_margin_start"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_sub_categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

@@ -2,12 +2,16 @@ package alrefa.android.com.homefit.Data;
 
 import android.content.Context;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
+import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
+import io.reactivex.Single;
 
 
 public class DataManager implements DataManagerHelper {
@@ -27,5 +31,12 @@ public class DataManager implements DataManagerHelper {
         this.databaseHelper = databaseHelper;
         this.prefsHelper = prefsHelper;
         this.apiHelper = apiHelper;
+    }
+
+
+    @Override
+    public Single<List<MainRequests.SliderRequests>> getBannerSliders(String token) {
+        return apiHelper.getBannerSliders(token);
+
     }
 }

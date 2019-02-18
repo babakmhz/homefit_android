@@ -2,13 +2,16 @@ package alrefa.android.com.homefit.Utils;
 
 import android.app.Application;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.interceptors.HttpLoggingInterceptor;
+
 import javax.inject.Inject;
 
+import alrefa.android.com.homefit.BuildConfig;
 import alrefa.android.com.homefit.DI.Component.ApplicationComponent;
 import alrefa.android.com.homefit.DI.Component.DaggerApplicationComponent;
 import alrefa.android.com.homefit.DI.Module.ApplicationModule;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 public class MyApplication extends Application {
@@ -17,8 +20,8 @@ public class MyApplication extends Application {
     @Inject
     DataManagerHelper mDataManager;
 
-    @Inject
-    CalligraphyConfig mCalligraphyConfig;
+//    @Inject
+//    CalligraphyConfig mCalligraphyConfig;
 
     private ApplicationComponent mApplicationComponent;
 
@@ -31,7 +34,14 @@ public class MyApplication extends Application {
 
         mApplicationComponent.inject(this);
 
-        CalligraphyConfig.initDefault(mCalligraphyConfig);
+        AppLogger.init();
+
+        AndroidNetworking.initialize(getApplicationContext());
+
+        if (BuildConfig.DEBUG) {
+            AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
+        }
+        // CalligraphyConfig.initDefault(mCalligraphyConfig);
 
     }
 

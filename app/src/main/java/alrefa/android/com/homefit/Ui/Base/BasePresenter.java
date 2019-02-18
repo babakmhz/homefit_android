@@ -1,29 +1,10 @@
-/*
- * Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://mindorks.com/license/apache-v2
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
-
 package alrefa.android.com.homefit.Ui.Base;
-
-/**
- * Created by janisharali on 27/01/17.
- */
 
 import com.androidnetworking.error.ANError;
 
 import javax.inject.Inject;
 
-import alrefa.android.com.homefit.Data.DataManager;
+import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -31,14 +12,14 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
     private static final String TAG = "BasePresenter";
 
-    private final DataManager mDataManager;
+    private final DataManagerHelper mDataManager;
     private final SchedulerProvider mSchedulerProvider;
     private final CompositeDisposable mCompositeDisposable;
 
     private V mMvpView;
 
     @Inject
-    public BasePresenter(DataManager dataManager,
+    public BasePresenter(DataManagerHelper dataManager,
                          SchedulerProvider schedulerProvider,
                          CompositeDisposable compositeDisposable) {
         this.mDataManager = dataManager;
@@ -69,7 +50,7 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         if (!isViewAttached()) throw new MvpViewNotAttachedException();
     }*/
 
-    public DataManager getDataManager() {
+    public DataManagerHelper getDataManager() {
         return mDataManager;
     }
 

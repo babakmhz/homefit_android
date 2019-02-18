@@ -5,6 +5,7 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
+import alrefa.android.com.homefit.DI.Qualifier.ApiInfo;
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
 import alrefa.android.com.homefit.Data.DB.AppDatabase;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
@@ -12,6 +13,7 @@ import alrefa.android.com.homefit.Data.DataManager;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
 import alrefa.android.com.homefit.Data.Network.AppApiService;
+import alrefa.android.com.homefit.Data.Network.Model.ApiHeader;
 import alrefa.android.com.homefit.Data.Prefs.AppPreferences;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
 import dagger.Module;
@@ -52,7 +54,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public ApiHelper ProvideApiHelper() {
+    public ApiHelper ProvideApiHelper(ApiHeader apiHeader) {
         return new AppApiService();
     }
 
@@ -78,7 +80,25 @@ public class ApplicationModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/iran_sans_mobile_medium.ttf")
+                .setDefaultFontPath("fonts/en/Vollkorn_Semibold.ttf")
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    public ApiHeader.PublicApiHeader ProvidePublicApiHeader() {
+        return new ApiHeader.PublicApiHeader();
+    }
+
+    @Provides
+    @Singleton
+    public ApiHeader ProvideApiHeader(ApiHeader.PublicApiHeader apiHeader) {
+        return new ApiHeader(apiHeader);
+    }
+
+    @Provides
+    @Singleton
+    public AppApiService ProvideAppAPiService(ApiHeader apiHeader) {
+        return new AppApiService();
     }
 }

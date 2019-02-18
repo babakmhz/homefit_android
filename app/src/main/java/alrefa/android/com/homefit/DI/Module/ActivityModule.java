@@ -1,9 +1,22 @@
 package alrefa.android.com.homefit.DI.Module;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
+import alrefa.android.com.homefit.DI.Scope.PerActivity;
+import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
+import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
+import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
+import alrefa.android.com.homefit.Ui.Intro.FragmentSlide4;
+import alrefa.android.com.homefit.Ui.Intro.IntroMvpPresenter;
+import alrefa.android.com.homefit.Ui.Intro.IntroMvpView;
+import alrefa.android.com.homefit.Ui.Intro.IntroPresenter;
+import alrefa.android.com.homefit.Ui.Intro.IntroSliderViewPagerAdapter;
 import alrefa.android.com.homefit.Utils.rx.AppSchedulerProvider;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import dagger.Module;
@@ -40,6 +53,37 @@ public class ActivityModule {
     @Provides
     CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();
+    }
+
+
+    @Provides
+    @PerActivity
+    IntroMvpPresenter<IntroMvpView> ProvideIntroMvpPresenter(IntroPresenter<IntroMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    IntroSliderViewPagerAdapter ProvideSliderViewPagerAdapter() {
+        return new IntroSliderViewPagerAdapter(activity.getSupportFragmentManager());
+    }
+
+
+    @Provides
+    @PerActivity
+    List<Fragment> ProvideSliderFragments() {
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new FragmentSlide1());
+        fragments.add(new FragmentSlide2());
+        fragments.add(new FragmentSlide3());
+        fragments.add(new FragmentSlide4());
+        return fragments;
+    }
+
+    @Provides
+    @PerActivity
+    public List<String> ProvideImageUrls(){
+        return new ArrayList<>();
     }
 
 
