@@ -32,9 +32,6 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView {
 
 
     @Inject
-    SliderPagerAdapter sliderPagerAdapter;
-
-    @Inject
     MainActivityPresenter<MainActivityMvpView> mPresenter;
 
     @Override
@@ -96,7 +93,11 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView {
 
     @Override
     public void onSlidersPrepared(List<MainRequests.SliderRequests> sliders) {
-        sliderPagerAdapter.setImages(sliders);
-        sliderPager.setAdapter(sliderPagerAdapter);
+        List<String> imageList = new ArrayList<>();
+        for (MainRequests.SliderRequests url :
+                sliders) {
+            imageList.add(url.getImage_url());
+        }
+        sliderPager.setAdapter(new SliderPagerAdapter(getSupportFragmentManager(),imageList));
     }
 }

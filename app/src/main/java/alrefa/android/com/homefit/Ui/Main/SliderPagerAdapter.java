@@ -1,78 +1,47 @@
 package alrefa.android.com.homefit.Ui.Main;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
-import com.bumptech.glide.Glide;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
-import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
-import alrefa.android.com.homefit.R;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
-public class SliderPagerAdapter extends PagerAdapter {
+public class SliderPagerAdapter extends FragmentPagerAdapter {
 
 
-    private final Context context;
-    private final LayoutInflater layoutInflater;
-    private List<String> imageUrls;
-    @BindView(R.id.image_bannerslider)
-    ImageView imageSlider;
-    private Unbinder unbinder;
+    private final List<String> urls;
 
-    @Inject
-    public SliderPagerAdapter(@ActivityContext Context context, List<String> imageUrls) {
-        this.context = context;
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.imageUrls = imageUrls;
+
+    public SliderPagerAdapter(FragmentManager fm, List<String> urls) {
+        super(fm);
+        this.urls = urls;
+
+
     }
 
     @Override
     public int getCount() {
-        return imageUrls.size();
+        return 1;
     }
 
-    public void setImages(List<MainRequests.SliderRequests> urls) {
-        imageUrls.clear();
-        // TODO: 2/18/19 handle arabic images
-        for (MainRequests.SliderRequests obj :
-                urls) {
-            imageUrls.add(obj.getImage_url());
+
+    @Override
+    public Fragment getItem(int i) {
+        switch (i) {
+            case 0:
+                BannerSliderFragment fragment = BannerSliderFragment.newInstance();
+                fragment.setImage(i);
+                return fragment;
+            case 1:
+                return BannerSliderFragment.newInstance();
+            case 2:
+                return BannerSliderFragment.newInstance();
+            case 3:
+                return BannerSliderFragment.newInstance();
+            default:
+                return BannerSliderFragment.newInstance();
         }
     }
 
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-        return view == ((LinearLayout) o);
-    }
-
-    @NonNull
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = layoutInflater.inflate(R.layout.bannerslider_viewpager_template, container, false);
-        unbinder = ButterKnife.bind(this, itemView);
-        Glide.with(context).load(imageUrls.get(position)).into(imageSlider);
-        container.addView(itemView);
-
-        return itemView;
-
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout) object);
-    }
 }
