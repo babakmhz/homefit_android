@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,13 +25,6 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-
-    @BindView(R.id.viewpager_bannerslider)
-    ViewPager sliderPager;
-
-
-    @Inject
-    SliderPagerAdapter sliderPagerAdapter;
 
     @Inject
     MainActivityPresenter<MainActivityMvpView> mPresenter;
@@ -96,7 +88,6 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView {
 
     @Override
     public void onSlidersPrepared(List<MainRequests.SliderRequests> sliders) {
-        sliderPagerAdapter.setImages(sliders);
-        sliderPager.setAdapter(sliderPagerAdapter);
+
     }
 }

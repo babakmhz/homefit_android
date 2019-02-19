@@ -27,9 +27,9 @@ public class SliderPagerAdapter extends PagerAdapter {
 
     private final Context context;
     private final LayoutInflater layoutInflater;
-    private List<String> imageUrls;
     @BindView(R.id.image_bannerslider)
     ImageView imageSlider;
+    private List<String> imageUrls;
     private Unbinder unbinder;
 
     @Inject
