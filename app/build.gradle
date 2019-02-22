@@ -15,9 +15,11 @@ android {
 
         debug {
             buildConfigField("String", "API_KEY", "\"84c2907aaed14d11b1c2411c5cba60da\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.43.92:8000/api/client/\"")
         }
         release {
             minifyEnabled true
+            buildConfigField("String", "BASE_URL", "\"http://192.168.43.92:8000/api/client/\"")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -41,6 +43,7 @@ dependencies {
 
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+//    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
@@ -67,7 +70,7 @@ dependencies {
 
     // swipe view
     implementation "com.mindorks:placeholderview:$rootProject.placeholderviewVersion"
-
+    annotationProcessor "com.mindorks.android:placeholderview-compiler:$rootProject.placeholderviewVersion"
     // logger
     implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
 
@@ -76,13 +79,15 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
-    //scalable imageView
-    implementation "com.joooonho:selectableroundedimageview:$rootProject.scalableImageViewVersion"
+//    //scalable imageView
+//    implementation "com.joooonho:selectableroundedimageview:$rootProject.scalableImageViewVersion"
+
+    //circleImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
     // UI Testing
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
-    //circleImageView
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }

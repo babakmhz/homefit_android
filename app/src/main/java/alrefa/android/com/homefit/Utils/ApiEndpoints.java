@@ -1,7 +1,12 @@
 package alrefa.android.com.homefit.Utils;
 
+import alrefa.android.com.homefit.BuildConfig;
+
 public final class ApiEndpoints {
 
-    public static final String BASE_URL = "http://192.168.43.92:8000/api/client/";
-    public static final String SLIDER_ENDPOINT = BASE_URL+"sliders";
+    // TODO: 2/20/19 change baseURL
+    public static final String HEADER_AUTH_KEY = "AUTH";
+    public static final String SLIDER_ENDPOINT = BuildConfig.BASE_URL + "sliders";
+    public static final String CATEGORIES_ENDPOINT = BuildConfig.BASE_URL + "serviceCategories";
+
 }

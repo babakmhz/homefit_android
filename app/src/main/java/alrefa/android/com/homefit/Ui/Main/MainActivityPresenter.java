@@ -45,4 +45,25 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
 
 
     }
+
+    @Override
+    public void prepareAvailableServices() {
+
+        // TODO: 2/22/19 add view.showLoading & hideLoading
+        getCompositeDisposable().add(getDataManager().getAvailableServices(BuildConfig.API_KEY)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(new Consumer<List<MainRequests.CategoriesRequests>>() {
+                    @Override
+                    public void accept(List<MainRequests.CategoriesRequests> categoriesRequests) throws Exception {
+                        AppLogger.i("services", categoriesRequests);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        AppLogger.i("servicesError", throwable.toString());
+
+                    }
+                }));
+    }
 }

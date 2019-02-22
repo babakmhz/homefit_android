@@ -39,4 +39,9 @@ public class DataManager implements DataManagerHelper {
         return apiHelper.getBannerSliders(token);
 
     }
+
+    @Override
+    public Single<List<MainRequests.CategoriesRequests>> getAvailableServices(String token) {
+        return apiHelper.getAvailableServices(token);
+    }
 }

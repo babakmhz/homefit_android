@@ -9,6 +9,7 @@ import java.util.List;
 
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
+import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
@@ -17,6 +18,7 @@ import alrefa.android.com.homefit.Ui.Intro.IntroMvpPresenter;
 import alrefa.android.com.homefit.Ui.Intro.IntroMvpView;
 import alrefa.android.com.homefit.Ui.Intro.IntroPresenter;
 import alrefa.android.com.homefit.Ui.Intro.IntroSliderViewPagerAdapter;
+import alrefa.android.com.homefit.Ui.Main.ServiceCategoryRecyclerAdapter;
 import alrefa.android.com.homefit.Utils.rx.AppSchedulerProvider;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import dagger.Module;
@@ -80,10 +82,23 @@ public class ActivityModule {
         return fragments;
     }
 
-    @Provides
+ /*   @Provides
     @PerActivity
     public List<String> ProvideImageUrls(){
         return new ArrayList<>();
+    }*/
+
+    @Provides
+    @PerActivity
+    public List<MainRequests.CategoriesRequests> ProvideServiceCategoryList(){
+        return new ArrayList<>();
+    }
+
+    @Provides
+    @PerActivity
+    public ServiceCategoryRecyclerAdapter ProvideServiceCategoryRecyclerAdapter
+            (@ActivityContext Context context, List<MainRequests.CategoriesRequests> data){
+        return new ServiceCategoryRecyclerAdapter(context,data);
     }
 
 

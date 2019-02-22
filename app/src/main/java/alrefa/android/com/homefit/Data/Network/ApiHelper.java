@@ -8,4 +8,5 @@ import io.reactivex.Single;
 public interface ApiHelper {
 
     Single<List<MainRequests.SliderRequests>> getBannerSliders(String token);
+    Single<List<MainRequests.CategoriesRequests>> getAvailableServices(String token);
 }
