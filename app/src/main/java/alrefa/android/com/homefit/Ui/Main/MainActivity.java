@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,11 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,8 +37,10 @@ import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
 import alrefa.android.com.homefit.Utils.AppLogger;
+import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnTextChanged;
 
 public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
@@ -74,12 +79,20 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.recycler_categories)
     RecyclerView recyclerCategories;
 
+    @BindView(R.id.nested_scrollView)
+    NestedScrollView nestedScrollView;
 
     @BindView(R.id.text_sub_category_indicator)
     TextView textSubCategoryIndicator;
 
     @BindView(R.id.text_description_max_length_indicator)
     TextView textDescriptionMaxLengthIndicator;
+
+    @BindView(R.id.text_location_indicator)
+    TextView textLocationIndicator;
+
+    @BindView(R.id.text_current_description_length)
+    TextView textCurrentDescriptionLength;
 
     @Inject
     MainActivityPresenter<MainActivityMvpView> mPresenter;
@@ -92,8 +105,12 @@ public class MainActivity extends BaseActivity
     @Inject
     LatLng muscat_latLng;
 
+    @BindView(R.id.editText_description)
+    EditText editTextDescription;
+
 
     private Animation visibilityAnim;
+    private CameraUpdate cameraUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,12 +139,10 @@ public class MainActivity extends BaseActivity
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         initializeBoldFonts();
-        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        supportMapFragment = (GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mPresenter.prepareSliders();
         mPresenter.prepareAvailableServices();
         visibilityAnim = AnimationUtils.loadAnimation(this, R.anim.sub_category_gone_anim);
@@ -157,7 +172,6 @@ public class MainActivity extends BaseActivity
     }
 
     private void initializeBoldFonts() {
-
         // TODO: 2/24/19 handle for both english and arabic fonts
         Typeface typeface = Typeface.createFromAsset(this.getAssets(), AppConstants.ENGLISH_BOLD_FONT_PATH);
         textCategoryIndicator.setTypeface(typeface);
@@ -165,6 +179,7 @@ public class MainActivity extends BaseActivity
         textDescriptionMaxLengthIndicator.setTypeface(typeface);
         textBannersliderIndicator.setTypeface(typeface);
         textSubCategoryIndicator.setTypeface(typeface);
+        textLocationIndicator.setTypeface(typeface);
     }
 
     @Override
@@ -257,10 +272,29 @@ public class MainActivity extends BaseActivity
 
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.addMarker(new MarkerOptions().position(muscat_latLng)
                 .title("muscat"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(muscat_latLng));
+        googleMap.getUiSettings().setZoomGesturesEnabled(true);
+        // TODO: 3/4/19 grant permission on app intro slider and handle Location Errors
+        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        ((GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+                .setListener(new GoogleMapsCustomSupportFragment.OnTouchListener() {
+                    @Override
+                    public void onTouch() {
+                        nestedScrollView.requestDisallowInterceptTouchEvent(true);
+                    }
+                });
+        cameraUpdate = CameraUpdateFactory.newLatLngZoom(muscat_latLng, 15);
+        googleMap.moveCamera(cameraUpdate);
+        googleMap.animateCamera(cameraUpdate);
     }
+
+    @OnTextChanged(R.id.editText_description)
+    public void onDescriptionTextChanged(CharSequence charSequence) {
+        textCurrentDescriptionLength.setText(String.valueOf(charSequence.toString().length()));
+    }
+
 }
