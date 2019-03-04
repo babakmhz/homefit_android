@@ -18,6 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
@@ -33,7 +39,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
-        , SubServiceCategoryRecyclerAdapter.CallBack {
+        , SubServiceCategoryRecyclerAdapter.CallBack, OnMapReadyCallback {
 
     @Inject
     ServiceCategoryRecyclerAdapter serviceCategoryRecyclerAdapter;
@@ -80,8 +86,14 @@ public class MainActivity extends BaseActivity
 
     @Inject
     SubServiceCategoryRecyclerAdapter subServiceCategoryRecyclerAdapter;
-    private Animation visibilityAnim;
+    @Inject
+    SupportMapFragment supportMapFragment;
 
+    @Inject
+    LatLng muscat_latLng;
+
+
+    private Animation visibilityAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,10 +127,11 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
 
         initializeBoldFonts();
+        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mPresenter.prepareSliders();
         mPresenter.prepareAvailableServices();
         visibilityAnim = AnimationUtils.loadAnimation(this, R.anim.sub_category_gone_anim);
-
+        supportMapFragment.getMapAsync(this);
     }
 
     @Override
@@ -242,5 +255,12 @@ public class MainActivity extends BaseActivity
     public void onSubCategoryItemClicked() {
 
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        googleMap.addMarker(new MarkerOptions().position(muscat_latLng)
+                .title("muscat"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(muscat_latLng));
     }
 }

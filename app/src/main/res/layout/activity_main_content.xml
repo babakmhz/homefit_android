@@ -20,8 +20,9 @@
 
             <include layout="@layout/layout_bannerslider" />
 
-
             <include layout="@layout/description_content" />
+
+            <include layout="@layout/layout_map" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.animation.Animation;
 
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import javax.inject.Singleton;
 
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Qualifier.Bold_en;
+import alrefa.android.com.homefit.DI.Qualifier.oman_latlng;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
@@ -138,5 +142,16 @@ public class ActivityModule {
         return new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
     }
 
+    @Provides
+    @PerActivity
+    public SupportMapFragment ProvideSupportMapFragment(){
+        return new SupportMapFragment();
+    }
+
+    @Provides
+    @PerActivity
+    public LatLng ProvidesOmanLatLng(){
+        return new LatLng(23.614328,58.545284);
+    }
 
 }

@@ -4,10 +4,13 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Typeface;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import javax.inject.Singleton;
 
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
 import alrefa.android.com.homefit.DI.Qualifier.Bold_en;
+import alrefa.android.com.homefit.DI.Qualifier.oman_latlng;
 import alrefa.android.com.homefit.Data.DB.AppDatabase;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.DataManager;
@@ -104,4 +107,9 @@ public class ApplicationModule {
         return new AppApiService();
     }
 
+
+    @Provides
+    public LatLng ProvidesOmanLatLng(){
+        return new LatLng(23.614328,58.545284);
+    }
 }

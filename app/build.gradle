@@ -43,7 +43,8 @@ dependencies {
 
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-//    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    //    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
@@ -90,4 +91,5 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
 }
