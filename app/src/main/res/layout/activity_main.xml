@@ -20,22 +20,24 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/toolbar_transparent"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="end"
-                >
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_bell"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
                     android:layout_marginEnd="15dp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="5dp"/>
-            </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:id="@+id/text_toolbar_app_name"
+                    android:src="@drawable/ic_home_fit"/>
         </android.support.v7.widget.Toolbar>
 
         <include layout="@layout/activity_main_content"

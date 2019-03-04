@@ -10,4 +10,6 @@
     <dimen name="main_act_main_title_margin_top">5dp</dimen>
     <dimen name="main_act_main_title_default_margin_start">20dp</dimen>
     <dimen name="card_corner_standard">10dp</dimen>
+    <dimen name="standard_elevation">5dp</dimen>
+    <dimen name="standard_title_size">17sp</dimen>
 </resources>

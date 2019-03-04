@@ -6,5 +6,6 @@
     <color name="colorPurple">#311B92</color>
     <color name="colorWhite">#fff</color>
     <color name="black_alpha_40">#fff</color>
-    <color name="main_background_color">#edf1f5</color>
+    <color name="main_background_color">#eef3f8</color>
+    <color name="select_view_dark_color">#3a393b</color>
 </resources>

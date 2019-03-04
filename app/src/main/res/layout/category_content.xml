@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
-    android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
     android:layout_marginTop="@dimen/main_act_main_title_margin_top"
     android:gravity="center_vertical"
     android:orientation="vertical"
@@ -14,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
         android:orientation="horizontal">
 
 
@@ -24,13 +24,14 @@
             android:src="@drawable/ic_layers" />
 
         <TextView
+            android:id="@+id/text_category_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="5dp"
-            android:textStyle="bold"
             android:text="@string/choose_category"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

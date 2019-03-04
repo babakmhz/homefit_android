@@ -10,4 +10,7 @@
     <string name="choose_category">Choose Category</string>
     <string name="description">Description</string>
     <string name="enter_description_of_service_you_are_looking_for">enter description of service you are looking for.</string>
+    <string name="optional">(optional)</string>
+    <string name="recommended">Recommended</string>
+    <string name="choose_your_desired_services">Choose Your Desired Services</string>
 </resources>

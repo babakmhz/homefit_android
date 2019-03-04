@@ -2,11 +2,12 @@ package alrefa.android.com.homefit.DI.Module;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 
 import javax.inject.Singleton;
 
-import alrefa.android.com.homefit.DI.Qualifier.ApiInfo;
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
+import alrefa.android.com.homefit.DI.Qualifier.Bold_en;
 import alrefa.android.com.homefit.Data.DB.AppDatabase;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.DataManager;
@@ -16,6 +17,7 @@ import alrefa.android.com.homefit.Data.Network.AppApiService;
 import alrefa.android.com.homefit.Data.Network.Model.ApiHeader;
 import alrefa.android.com.homefit.Data.Prefs.AppPreferences;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
+import alrefa.android.com.homefit.Utils.MyApplication;
 import dagger.Module;
 import dagger.Provides;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -80,7 +82,7 @@ public class ApplicationModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/en/Vollkorn_Semibold.ttf")
+                .setDefaultFontPath("fonts/en/Lato-Medium.ttf")
                 .build();
     }
 
@@ -101,4 +103,5 @@ public class ApplicationModule {
     public AppApiService ProvideAppAPiService(ApiHeader apiHeader) {
         return new AppApiService();
     }
+
 }

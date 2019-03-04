@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical|top"
     android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
-    android:layout_marginTop="@dimen/main_act_main_title_margin_top"
     android:layout_marginEnd="@dimen/main_act_main_title_default_margin_start"
     android:clipToPadding="false"
     android:gravity="center_vertical"
@@ -23,16 +22,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
-            android:src="@drawable/ic_content_paste_black_24dp" />
+            android:src="@drawable/ic_writing" />
 
         <TextView
+            android:id="@+id/text_description_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="5dp"
             android:text="@string/description"
             android:textSize="17sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="5dp"
+            android:text="@string/optional"
+            android:textSize="17sp"
+            android:textStyle="italic" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -53,6 +62,7 @@
                 android:text="/" />
 
             <TextView
+                android:id="@+id/text_description_max_length_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="500"
@@ -61,16 +71,19 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/editText_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_margin="5dp"
         android:layout_marginTop="@dimen/main_act_main_title_margin_top"
         android:background="@drawable/selector_edit_text_description"
-        android:elevation="5dp"
+        android:elevation="@dimen/standard_elevation"
         android:gravity="top"
+        android:maxLength="500"
         android:hint="@string/enter_description_of_service_you_are_looking_for"
-        android:minHeight="100dp"
+        android:minHeight="120dp"
+        android:textAlignment="center"
         android:textSize="15sp" />
 
 

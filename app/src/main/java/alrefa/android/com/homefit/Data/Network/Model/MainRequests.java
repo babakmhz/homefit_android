@@ -3,9 +3,12 @@ package alrefa.android.com.homefit.Data.Network.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class MainRequests {
 
-    public static final class SliderRequests {
+
+    public class SliderRequests {
 
         @Expose
         @SerializedName("id")
@@ -69,7 +72,7 @@ public class MainRequests {
         }
     }
 
-    public static final class CategoriesRequests {
+    public class CategoriesRequests {
 
         @Expose
         @SerializedName("id")
@@ -80,20 +83,20 @@ public class MainRequests {
         private String title;
 
         @Expose
+        @SerializedName("title_arabic")
+        private String title_arabic;
+
+        @Expose
         @SerializedName("image")
         private String image_url;
 
         @Expose
+        @SerializedName("image_selected")
+        private String image_selected_url;
+
+        @Expose
         @SerializedName("service")
-        private Service service;
-
-        public Service getService() {
-            return service;
-        }
-
-        public void setService(Service service) {
-            this.service = service;
-        }
+        private List<Services> services;
 
         public String getImage_url() {
             return image_url;
@@ -119,69 +122,95 @@ public class MainRequests {
             this.id = id;
         }
 
+        public String getImage_selected_url() {
+            return image_selected_url;
+        }
 
-        class Service {
-
-            @Expose
-            @SerializedName("id")
-            private int id;
-
-            @Expose
-            @SerializedName("title")
-            private String title;
-
-            @Expose
-            @SerializedName("title_arabic")
-            private String title_arabic;
-
-            @Expose
-            @SerializedName("image")
-            private String image_url;
-
-            @Expose
-            @SerializedName("price")
-            private float price;
+        public void setImage_selected_url(String image_selected_url) {
+            this.image_selected_url = image_selected_url;
+        }
 
 
-            public String getImage_url() {
-                return image_url;
-            }
+        public String getTitle_arabic() {
+            return title_arabic;
+        }
 
-            public void setImage_url(String image_url) {
-                this.image_url = image_url;
-            }
+        public void setTitle_arabic(String title_arabic) {
+            this.title_arabic = title_arabic;
+        }
 
-            public String getTitle_arabic() {
-                return title_arabic;
-            }
+        public List<Services> getServices() {
+            return services;
+        }
 
-            public void setTitle_arabic(String title_arabic) {
-                this.title_arabic = title_arabic;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public float getPrice() {
-                return price;
-            }
-
-            public void setPrice(float price) {
-                this.price = price;
-            }
+        public void setServices(List<Services> services) {
+            this.services = services;
         }
     }
+
+
+    public class Services {
+
+        @Expose
+        @SerializedName("id")
+        private int id;
+
+        @Expose
+        @SerializedName("title")
+        private String title;
+
+        @Expose
+        @SerializedName("title_arabic")
+        private String title_arabic;
+
+        @Expose
+        @SerializedName("image")
+        private String image_url;
+
+        @Expose
+        @SerializedName("price")
+        private float price;
+
+
+        public String getImage_url() {
+            return image_url;
+        }
+
+        public void setImage_url(String image_url) {
+            this.image_url = image_url;
+        }
+
+        public String getTitle_arabic() {
+            return title_arabic;
+        }
+
+        public void setTitle_arabic(String title_arabic) {
+            this.title_arabic = title_arabic;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public float getPrice() {
+            return price;
+        }
+
+        public void setPrice(float price) {
+            this.price = price;
+        }
+    }
+
 }

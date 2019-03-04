@@ -16,10 +16,10 @@
 
             <include layout="@layout/category_content" />
 
+            <include layout="@layout/sub_category_content" />
+
             <include layout="@layout/layout_bannerslider" />
 
-
-            <include layout="@layout/sub_category_content" />
 
             <include layout="@layout/description_content" />
 
