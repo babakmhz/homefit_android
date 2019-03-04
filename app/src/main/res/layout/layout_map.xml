@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
+        android:layout_marginTop="@dimen/main_act_main_title_margin_top"
         android:layout_marginBottom="8dp"
         android:clipToPadding="false"
-        android:layout_marginTop="@dimen/main_act_main_title_margin_top"
         android:orientation="horizontal">
 
         <ImageView
@@ -38,8 +38,8 @@
         android:layout_height="250dp"
         android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
         android:layout_marginEnd="@dimen/main_act_main_title_default_margin_start"
-        app:cardCornerRadius="4dp"
         android:layout_marginBottom="@dimen/standard_margin_bottom_on_main_activity"
+        app:cardCornerRadius="4dp"
         app:cardElevation="@dimen/standard_elevation">
 
         <fragment
@@ -47,7 +47,6 @@
             android:name="alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".Ui.Main.MainActivity"
-            />
+            tools:context=".Ui.Main.MainActivity" />
     </android.support.v7.widget.CardView>
 </LinearLayout>
