@@ -1,6 +1,7 @@
 package alrefa.android.com.homefit.Ui.Main;
 
 import android.content.Context;
+import android.location.Location;
 
 import java.util.List;
 
@@ -22,4 +23,20 @@ public interface MainActivityMvpView extends MvpView {
     void onAvailableServicesPrepared(List<MainRequests.Services> services);
 
     void onNoSubCategoryNeeded();
+
+    void onAddressFromLatLngReady(String addresses);
+
+    void onAddressFromLatLngError();
+
+    void showLoadingOnMap();
+
+    void hideLoadingOnMap();
+
+    void onLocationUpdatePrepared(Location location);
+
+    void onLocationUpdateFailed();
+
+    Location getCurrentLocation();
+
+    void onRequestLocationNotPrepared();
 }

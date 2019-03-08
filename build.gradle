@@ -53,6 +53,8 @@ ext {
     debugDBVersion = '1.0.3'
     timberVersion = '4.5.1'
 
+    googleMapsVersion = '16.1.0'
+    playServiceLocatoinVersion = '16.0.0'
     //Test dependencies
     junitVersion = '4.12'
     espressoVersion = '2.2.2'

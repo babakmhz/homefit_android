@@ -2,6 +2,10 @@ package alrefa.android.com.homefit.DI.Module;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Singleton;
 
@@ -153,5 +158,13 @@ public class ActivityModule {
     public LatLng ProvidesOmanLatLng(){
         return new LatLng(23.614328,58.545284);
     }
+
+    @Provides
+    @PerActivity
+    public Geocoder ProvidesGeocoder(@ActivityContext Context context){
+        return new Geocoder(context, Locale.getDefault());
+    }
+
+
 
 }

@@ -1,8 +1,16 @@
 package alrefa.android.com.homefit.Ui.Main;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Geocoder;
+import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,15 +25,19 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -38,13 +50,17 @@ import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
+import alrefa.android.com.homefit.Utils.KeyboardUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
-        , SubServiceCategoryRecyclerAdapter.CallBack, OnMapReadyCallback {
+        , SubServiceCategoryRecyclerAdapter.CallBack,
+        OnMapReadyCallback, GoogleMap.OnMapClickListener,
+        LocationSource.OnLocationChangedListener {
 
     @Inject
     ServiceCategoryRecyclerAdapter serviceCategoryRecyclerAdapter;
@@ -54,6 +70,9 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.recycler_sub_categories)
     RecyclerView recyclerSubCategories;
+
+    @BindView(R.id.exit_text_address_map)
+    EditText editTextAddressMap;
 
     @BindView(R.id.text_bannerslider_indicator)
     TextView textBannersliderIndicator;
@@ -105,12 +124,27 @@ public class MainActivity extends BaseActivity
     @Inject
     LatLng muscat_latLng;
 
+    @Inject
+    Geocoder geocoder;
+
     @BindView(R.id.editText_description)
     EditText editTextDescription;
+
+    @BindView(R.id.progress_map)
+    ProgressBar progressMap;
+
+    @BindView(R.id.fab_find_me)
+    FloatingActionButton findMeFab;
 
 
     private Animation visibilityAnim;
     private CameraUpdate cameraUpdate;
+    private GoogleMap googleMap;
+    private Marker you_marker;
+    private Animation map_editText_visibilty_anim;
+
+    private Location current_location;
+    private GoogleApiClient googleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +168,13 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == AppConstants.LOCATION_PERMISSION_REQUEST_CODE && grantResults[0] == 0)
+            mPresenter.getLastKnownLocation(getApplicationContext());
+    }
+
+    @Override
     protected void setUp() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -142,11 +183,14 @@ public class MainActivity extends BaseActivity
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         initializeBoldFonts();
+        mPresenter.getLastKnownLocation(getApplicationContext());
         supportMapFragment = (GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mPresenter.prepareSliders();
         mPresenter.prepareAvailableServices();
+        map_editText_visibilty_anim = AnimationUtils.loadAnimation(this, R.anim.sub_category_visibility_anim);
         visibilityAnim = AnimationUtils.loadAnimation(this, R.anim.sub_category_gone_anim);
         supportMapFragment.getMapAsync(this);
+
     }
 
     @Override
@@ -171,6 +215,17 @@ public class MainActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void checkLocationPermissionOrUpdateLocation() {
+        // TODO: 3/8/19 move this on intro slider
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissionsSafely(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}
+                    , AppConstants.LOCATION_PERMISSION_REQUEST_CODE);
+        } else
+            mPresenter.getLastKnownLocation(getApplicationContext());
+    }
+
     private void initializeBoldFonts() {
         // TODO: 2/24/19 handle for both english and arabic fonts
         Typeface typeface = Typeface.createFromAsset(this.getAssets(), AppConstants.ENGLISH_BOLD_FONT_PATH);
@@ -181,6 +236,7 @@ public class MainActivity extends BaseActivity
         textSubCategoryIndicator.setTypeface(typeface);
         textLocationIndicator.setTypeface(typeface);
     }
+
 
     @Override
     public void onSlidersPrepared(List<MainRequests.SliderRequests> sliders) {
@@ -252,6 +308,60 @@ public class MainActivity extends BaseActivity
         subServiceCategoryRecyclerAdapter.clear();
     }
 
+    @Override
+    public void onAddressFromLatLngReady(String addresses) {
+        if (editTextAddressMap.getVisibility() != View.VISIBLE)
+            editTextAddressMap.setVisibility(View.VISIBLE);
+        editTextAddressMap.setAnimation(map_editText_visibilty_anim);
+        editTextAddressMap.setText(addresses);
+        editTextAddressMap.setFocusableInTouchMode(true);
+        editTextAddressMap.requestFocus();
+        KeyboardUtils.showSoftInput(editTextAddressMap, this);
+    }
+
+    @Override
+    public void onAddressFromLatLngError() {
+        // TODO: 3/7/19 handle That
+    }
+
+    @Override
+    public void showLoadingOnMap() {
+        // TODO: 3/7/19 fix conditions in presenter
+        progressMap.setVisibility(View.VISIBLE);
+        if (editTextAddressMap.getVisibility() != View.VISIBLE)
+            editTextAddressMap.setVisibility(View.VISIBLE);
+        editTextAddressMap.setAnimation(map_editText_visibilty_anim);
+        editTextAddressMap.setText(R.string.please_wait_while_obtaining_your_address);
+    }
+
+    @Override
+    public void hideLoadingOnMap() {
+        progressMap.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onLocationUpdatePrepared(Location location) {
+        this.current_location = location;
+        if (location != null) {
+            onMapClick(new LatLng(location.getLongitude(), location.getLatitude()));
+        }
+    }
+
+    @Override
+    public void onLocationUpdateFailed() {
+        // TODO: 3/7/19 handle this
+    }
+
+    @Override
+    public Location getCurrentLocation() {
+        return current_location;
+    }
+
+    @Override
+    public void onRequestLocationNotPrepared() {
+        mPresenter.requestLocationUpdates(this);
+    }
+
 
     @Override
     public void onCategoryItemClicked(int selected_position,
@@ -274,12 +384,13 @@ public class MainActivity extends BaseActivity
 
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions().position(muscat_latLng)
-                .title("muscat"));
-        googleMap.getUiSettings().setZoomGesturesEnabled(true);
+    public void onMapReady(final GoogleMap googleMap) {
+        this.googleMap = googleMap;
         // TODO: 3/4/19 grant permission on app intro slider and handle Location Errors
-        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        final MarkerOptions you_marker_option = new MarkerOptions().position(muscat_latLng).title("you");
+        you_marker = googleMap.addMarker(you_marker_option);
+        googleMap.getUiSettings().setZoomGesturesEnabled(true);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         ((GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                 .setListener(new GoogleMapsCustomSupportFragment.OnTouchListener() {
                     @Override
@@ -287,14 +398,41 @@ public class MainActivity extends BaseActivity
                         nestedScrollView.requestDisallowInterceptTouchEvent(true);
                     }
                 });
-        cameraUpdate = CameraUpdateFactory.newLatLngZoom(muscat_latLng, 15);
+        cameraUpdate = CameraUpdateFactory.newLatLngZoom(muscat_latLng, AppConstants.GOOGLE_MAPS_CAMERA_ZOOM);
         googleMap.moveCamera(cameraUpdate);
         googleMap.animateCamera(cameraUpdate);
+        googleMap.setOnMapClickListener(this);
+
+
     }
 
     @OnTextChanged(R.id.editText_description)
     public void onDescriptionTextChanged(CharSequence charSequence) {
         textCurrentDescriptionLength.setText(String.valueOf(charSequence.toString().length()));
     }
+
+    @Override
+    public void onMapClick(final LatLng latLng) {
+        if (you_marker != null) {
+            you_marker.setPosition(latLng);
+            cameraUpdate = CameraUpdateFactory.newLatLng(latLng);
+            googleMap.animateCamera(cameraUpdate);
+            mPresenter.getAddress(latLng, geocoder);
+        }
+
+    }
+
+    @OnClick(R.id.fab_find_me)
+    public void onFabClick() {
+        mPresenter.requestLocationUpdates(getApplicationContext());
+    }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
+        if (location != null)
+            onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
+    }
+
 
 }

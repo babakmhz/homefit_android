@@ -9,9 +9,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="choose_category">Choose Category</string>
     <string name="description">Description</string>
-    <string name="enter_description_of_service_you_are_looking_for">enter description of service you are looking for.</string>
+    <string name="enter_description_of_service_you_are_looking_for">Enter Description Of Service You Are Looking For.</string>
     <string name="optional">(optional)</string>
     <string name="recommended">Recommended</string>
     <string name="choose_your_desired_services">Choose Your Desired Services</string>
-    <string name="choose_your_location_by_tapping_on_map">Choose Your Location By Tapping on map</string>
+    <string name="choose_your_location_by_tapping_on_map">Choose Your Location By Tapping On Map</string>
+    <string name="you">You</string>
+    <string name="please_wait_while_obtaining_your_address">Please Wait While Obtaining Your Address...</string>
+    <string name="edit_address_if_needed">Edit Address If Needed!</string>
 </resources>
