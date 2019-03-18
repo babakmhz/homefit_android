@@ -382,7 +382,6 @@ public class MainActivity extends BaseActivity
 
     }
 
-
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
@@ -402,8 +401,6 @@ public class MainActivity extends BaseActivity
         googleMap.moveCamera(cameraUpdate);
         googleMap.animateCamera(cameraUpdate);
         googleMap.setOnMapClickListener(this);
-
-
     }
 
     @OnTextChanged(R.id.editText_description)
