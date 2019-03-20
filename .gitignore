@@ -25,6 +25,7 @@ notes.txt
 /captures
 .externalNativeBuild
 keystore/keystore.kjs
+.idea/misc.xml
 keystore/*
 keystore
 # Built application files
@@ -35,8 +36,6 @@ keystore
 # Files for the ART/Dalvik VM
 *.dex
 
-#app/src/main/java/novinhub/android/com/novinhub/Utils/Constants.java
-# Java class files
 *.class
 
 # Generated files
