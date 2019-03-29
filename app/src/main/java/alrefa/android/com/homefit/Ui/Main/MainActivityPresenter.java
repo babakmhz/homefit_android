@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import alrefa.android.com.homefit.BuildConfig;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BasePresenter;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
@@ -166,6 +167,26 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     public void getLastKnownLocation(Context context) {
         if (AppUtils.getLastKnownLocation(context) != null)
             getMvpView().onLocationUpdatePrepared(AppUtils.getLastKnownLocation(context));
+    }
+
+    @Override
+    public void onSubmitButtonClicked() {
+
+        if (getMvpView().getSelectedServices() == null ||
+                getMvpView().getSelectedServices().size() <= 0) {
+            getMvpView().showMessage(getMvpView().getSnackbarView(),
+                    getMvpView().getContext().getString(R.string.please_choose_your_services));
+            return;
+        }
+
+        if ((getMvpView().getLocationInLatLng() == null || "".equals(getMvpView().getLocationInLatLng()))
+                && (getMvpView().getAddress() == null || "".equals(getMvpView().getAddress()))) {
+            getMvpView().showMessage(getMvpView().getSnackbarView(), getMvpView().getContext().getString(R.string.please_enter_your_address_or_choose_by_tapping_on_map));
+            return;
+        }
+
+        getMvpView().proceedToOrderActivity();
+
     }
 
 

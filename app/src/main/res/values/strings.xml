@@ -17,4 +17,8 @@
     <string name="you">You</string>
     <string name="please_wait_while_obtaining_your_address">Please Wait While Obtaining Your Address...</string>
     <string name="edit_address_if_needed">Edit Address If Needed!</string>
+    <string name="enter_address_in_detail">Enter Address In Detail</string>
+    <string name="submit">Submit</string>
+    <string name="please_choose_your_services">Please Choose Your Services</string>
+    <string name="please_enter_your_address_or_choose_by_tapping_on_map">Please Enter Your Address Or Choose By Tapping On Map</string>
 </resources>

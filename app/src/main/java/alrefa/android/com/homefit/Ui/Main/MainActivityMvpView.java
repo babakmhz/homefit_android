@@ -2,6 +2,7 @@ package alrefa.android.com.homefit.Ui.Main;
 
 import android.content.Context;
 import android.location.Location;
+import android.view.View;
 
 import java.util.List;
 
@@ -39,4 +40,20 @@ public interface MainActivityMvpView extends MvpView {
     Location getCurrentLocation();
 
     void onRequestLocationNotPrepared();
+
+    List<MainRequests.Services> getSelectedServices();
+
+    String getDescription();
+
+    String getAddress();
+
+    String getLocationInLatLng();
+
+    View getSnackbarView();
+
+    Context getContext();
+
+    void proceedToOrderActivity();
+
+
 }

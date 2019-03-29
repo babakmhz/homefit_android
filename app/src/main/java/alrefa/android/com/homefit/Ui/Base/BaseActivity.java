@@ -107,19 +107,19 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void showMessage(String message) {
+    public void showMessage(View container,String message) {
         if (message != null) {
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            Snackbar.make(container,message,Snackbar.LENGTH_LONG).show();
         } else {
             // TODO: 12/28/18 fix this
             //Toast.makeText(this, getString(R.string.some_error), Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    public void showMessage(@StringRes int resId) {
-        showMessage(getString(resId));
-    }
+//    @Override
+//    public void showMessage(@StringRes int resId) {
+//        showMessage(getString(resId));
+//    }
 
     @Override
     public boolean isNetworkConnected() {

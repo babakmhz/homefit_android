@@ -10,7 +10,7 @@
     <dimen name="main_act_main_title_margin_top">5dp</dimen>
     <dimen name="main_act_main_title_default_margin_start">20dp</dimen>
     <dimen name="card_corner_standard">10dp</dimen>
-    <dimen name="standard_elevation">3dp</dimen>
+    <dimen name="standard_elevation">2dp</dimen>
     <dimen name="standard_title_size">17sp</dimen>
     <dimen name="standard_margin_bottom_on_main_activity">5dp</dimen>
 </resources>

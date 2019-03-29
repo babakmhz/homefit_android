@@ -80,7 +80,6 @@
         android:layout_gravity="top"
         android:layout_margin="5dp"
         android:layout_marginTop="@dimen/main_act_main_title_margin_top"
-
         android:layout_marginBottom="@dimen/standard_margin_bottom_on_main_activity"
         android:background="@drawable/selector_edit_text_description"
         android:elevation="@dimen/standard_elevation"

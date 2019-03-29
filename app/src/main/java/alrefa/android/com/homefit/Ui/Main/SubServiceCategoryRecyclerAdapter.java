@@ -30,7 +30,8 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
     private CallBack mCallback;
     private int last_selected_position = -1;
     private MainRequests.Services last_selected_category = null;
-
+    private List<MainRequests.Services> selected_services
+            = new ArrayList<>();
 
     public SubServiceCategoryRecyclerAdapter(@ActivityContext Context context
             , List<MainRequests.Services> servicesDataModels, CallBack mCallback) {
@@ -70,6 +71,11 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
         notifyDataSetChanged();
     }
 
+    public List<MainRequests.Services> getServices(){
+        return this.selected_services;
+    }
+
+
     public interface CallBack {
         void onSubCategoryItemClicked();
 
@@ -91,8 +97,7 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
         ImageView selected_mark;
         private MainRequests.Services each_item;
         private int position;
-        private List<MainRequests.Services> selected_services
-                = new ArrayList<>();
+
 
 
         public CategoryViewHolder(View itemView) {

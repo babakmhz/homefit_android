@@ -84,16 +84,16 @@ public abstract class BaseFragment extends Fragment implements MvpView {
     }
 
     @Override
-    public void showMessage(String message) {
+    public void showMessage(View contaier,String message) {
         if (mActivity != null) {
-            mActivity.showMessage(message);
+            mActivity.showMessage(contaier,message);
         }
     }
 
     @Override
-    public void showMessage(@StringRes int resId) {
+    public void showMessage(View container,@StringRes int resId) {
         if (mActivity != null) {
-            mActivity.showMessage(resId);
+            mActivity.showMessage(container,resId);
         }
     }
 

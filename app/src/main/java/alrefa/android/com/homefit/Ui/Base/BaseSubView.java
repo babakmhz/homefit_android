@@ -79,19 +79,7 @@ public abstract class BaseSubView extends ViewGroup implements SubMvpView {
         }
     }
 
-    @Override
-    public void showMessage(String message) {
-        if (mParentMvpView != null) {
-            mParentMvpView.showMessage(message);
-        }
-    }
 
-    @Override
-    public void showMessage(@StringRes int resId) {
-        if (mParentMvpView != null) {
-            mParentMvpView.showMessage(resId);
-        }
-    }
 
     @Override
     public void hideKeyboard() {

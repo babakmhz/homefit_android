@@ -34,5 +34,7 @@ public interface MainActivityMvpPresenter {
 
     void getLastKnownLocation(Context context);
 
+    void onSubmitButtonClicked();
+
 
 }

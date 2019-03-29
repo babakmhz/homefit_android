@@ -33,7 +33,7 @@
             android:textStyle="bold|italic" />
     </LinearLayout>
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/main_act_main_title_default_margin_start"
@@ -57,7 +57,7 @@
             android:text="@string/edit_address_if_needed"
             android:textSize="15sp"
             android:textStyle="italic" />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:background="@drawable/map_card_gradient"
                 tools:context=".Ui.Main.MainActivity" />
 
-            <EditText
+           <!-- <EditText
                 android:id="@+id/exit_text_address_map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                 android:textColor="#fff"
                 android:textSize="15sp"
                 android:visibility="invisible"
-                tools:text="address" />
+                tools:text="address" />-->
 
             <ProgressBar
                 android:id="@+id/progress_map"
@@ -114,7 +114,7 @@
                 android:id="@+id/fab_find_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/exit_text_address_map"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
@@ -123,5 +123,22 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
+    <EditText
+        android:id="@+id/editText_address_inDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/selector_edit_text_description"
+        android:elevation="@dimen/standard_elevation"
+
+        android:gravity="top"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/enter_address_in_detail"
+        android:maxLength="250"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="15sp" />
 
 </LinearLayout>

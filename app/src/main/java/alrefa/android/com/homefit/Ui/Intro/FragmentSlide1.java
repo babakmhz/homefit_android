@@ -21,4 +21,9 @@ public class FragmentSlide1 extends BaseFragment {
     protected void setUp(View view) {
 
     }
+
+    @Override
+    public void showMessage(View container, String message) {
+
+    }
 }

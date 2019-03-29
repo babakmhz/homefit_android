@@ -50,7 +50,6 @@ import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
-import alrefa.android.com.homefit.Utils.KeyboardUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -71,8 +70,6 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.recycler_sub_categories)
     RecyclerView recyclerSubCategories;
 
-    @BindView(R.id.exit_text_address_map)
-    EditText editTextAddressMap;
 
     @BindView(R.id.text_bannerslider_indicator)
     TextView textBannersliderIndicator;
@@ -109,6 +106,9 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.text_location_indicator)
     TextView textLocationIndicator;
+
+    @BindView(R.id.editText_address_inDetail)
+    EditText editTextAddressInDetail;
 
     @BindView(R.id.text_current_description_length)
     TextView textCurrentDescriptionLength;
@@ -310,14 +310,27 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onAddressFromLatLngReady(String addresses) {
-        if (editTextAddressMap.getVisibility() != View.VISIBLE)
+       /* if (editTextAddressMap.getVisibility() != View.VISIBLE)
             editTextAddressMap.setVisibility(View.VISIBLE);
         editTextAddressMap.setAnimation(map_editText_visibilty_anim);
         editTextAddressMap.setText(addresses);
         editTextAddressMap.setFocusableInTouchMode(true);
         editTextAddressMap.requestFocus();
         KeyboardUtils.showSoftInput(editTextAddressMap, this);
+  */
     }
+
+    @Override
+    public void showMessage(View container,String message) {
+        super.showMessage(container,message);
+    }
+
+    @Override
+    public void showMessage(View container, int resId) {
+
+    }
+
+
 
     @Override
     public void onAddressFromLatLngError() {
@@ -328,10 +341,10 @@ public class MainActivity extends BaseActivity
     public void showLoadingOnMap() {
         // TODO: 3/7/19 fix conditions in presenter
         progressMap.setVisibility(View.VISIBLE);
-        if (editTextAddressMap.getVisibility() != View.VISIBLE)
+       /* if (editTextAddressMap.getVisibility() != View.VISIBLE)
             editTextAddressMap.setVisibility(View.VISIBLE);
         editTextAddressMap.setAnimation(map_editText_visibilty_anim);
-        editTextAddressMap.setText(R.string.please_wait_while_obtaining_your_address);
+        editTextAddressMap.setText(R.string.please_wait_while_obtaining_your_address);*/
     }
 
     @Override
@@ -362,6 +375,41 @@ public class MainActivity extends BaseActivity
         mPresenter.requestLocationUpdates(this);
     }
 
+    @Override
+    public List<MainRequests.Services> getSelectedServices() {
+        return subServiceCategoryRecyclerAdapter.getServices();
+    }
+
+    @Override
+    public String getDescription() {
+        return editTextDescription.getText().toString();
+    }
+
+    @Override
+    public String getAddress() {
+        return editTextAddressInDetail.getText().toString();
+    }
+
+    @Override
+    public String getLocationInLatLng() {
+        return String.valueOf(you_marker.getPosition());
+    }
+
+    @Override
+    public View getSnackbarView() {
+        return drawerLayout;
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void proceedToOrderActivity() {
+
+    }
+
 
     @Override
     public void onCategoryItemClicked(int selected_position,
@@ -372,6 +420,7 @@ public class MainActivity extends BaseActivity
 
         mPresenter.switchSelectedCategoryItems(selected_position, last_selected_position,
                 last_selected_categories, categories, context);
+
 
 
     }
@@ -431,5 +480,8 @@ public class MainActivity extends BaseActivity
             onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
     }
 
-
+    @OnClick(R.id.bt_submit)
+    public void onSubmitButtonClicked() {
+        mPresenter.onSubmitButtonClicked();
+    }
 }
