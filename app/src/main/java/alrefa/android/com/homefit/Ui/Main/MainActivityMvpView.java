@@ -39,6 +39,8 @@ public interface MainActivityMvpView extends MvpView {
 
     Location getCurrentLocation();
 
+    void showBottomSheetView();
+
     void onRequestLocationNotPrepared();
 
     List<MainRequests.Services> getSelectedServices();

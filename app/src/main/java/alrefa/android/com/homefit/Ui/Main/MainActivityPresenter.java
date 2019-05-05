@@ -185,7 +185,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
             return;
         }
 
-        getMvpView().proceedToOrderActivity();
+        getMvpView().showBottomSheetView();
 
     }
 

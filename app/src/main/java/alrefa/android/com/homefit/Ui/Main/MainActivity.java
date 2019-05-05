@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
@@ -76,6 +77,7 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.text_description_indicator)
     TextView textDescriptionIndicator;
+
 
     @BindView(R.id.image_bannerslider)
     ImageView imageBannerslider;
@@ -145,6 +147,7 @@ public class MainActivity extends BaseActivity
 
     private Location current_location;
     private GoogleApiClient googleApiClient;
+    private BottomSheetBehavior bottomSheetBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,16 +183,19 @@ public class MainActivity extends BaseActivity
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         initializeBoldFonts();
-        mPresenter.getLastKnownLocation(getApplicationContext());
+        // TODO: 5/5/19 get last known location
+//        mPresenter.getLastKnownLocation(getApplicationContext());
         supportMapFragment = (GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mPresenter.prepareSliders();
         mPresenter.prepareAvailableServices();
         map_editText_visibilty_anim = AnimationUtils.loadAnimation(this, R.anim.sub_category_visibility_anim);
         visibilityAnim = AnimationUtils.loadAnimation(this, R.anim.sub_category_gone_anim);
         supportMapFragment.getMapAsync(this);
+
 
     }
 
@@ -321,15 +327,14 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void showMessage(View container,String message) {
-        super.showMessage(container,message);
+    public void showMessage(View container, String message) {
+        super.showMessage(container, message);
     }
 
     @Override
     public void showMessage(View container, int resId) {
 
     }
-
 
 
     @Override
@@ -368,6 +373,18 @@ public class MainActivity extends BaseActivity
     @Override
     public Location getCurrentLocation() {
         return current_location;
+    }
+
+    @Override
+    public void showBottomSheetView() {
+        //if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+        // bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+        //}
+
+        BttomsheetFragment bottomSheetFragment = new BttomsheetFragment();
+        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+
     }
 
     @Override
@@ -420,7 +437,6 @@ public class MainActivity extends BaseActivity
 
         mPresenter.switchSelectedCategoryItems(selected_position, last_selected_position,
                 last_selected_categories, categories, context);
-
 
 
     }
@@ -483,5 +499,6 @@ public class MainActivity extends BaseActivity
     @OnClick(R.id.bt_submit)
     public void onSubmitButtonClicked() {
         mPresenter.onSubmitButtonClicked();
+
     }
 }

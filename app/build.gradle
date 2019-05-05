@@ -14,9 +14,10 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField("String", "API_KEY", "\"84c2907aaed14d11b1c2411c5cba60da\"")
-            buildConfigField("String", "BASE_URL", "\"http://192.168.43.160:8000/api/client/\"")
-//            buildConfigField("String", "BASE_URL", "\"http://192.168.1.109:8000/api/client/\"")
+            buildConfigField("String", "API_KEY", "\"5db08333826040dd8b3665a491aede32\"")
+//            buildConfigField("String", "BASE_URL", "\"http://192.168.43.160:8000/api/client/\"")
+//            buildConfigField("String", "BASE_URL", "\"http://192.168.1.100:8000/api/client/\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.43.93:8000/api/client/\"")
 
         }
         release {

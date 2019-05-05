@@ -52,6 +52,12 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
     }
 
     @Override
+    public void showMessage(View container, String message) {
+        if (mActivity != null)
+            mActivity.showMessage(container, message);
+    }
+
+    @Override
     public void showLoading() {
         if (mActivity != null) {
             mActivity.showLoading();
@@ -81,9 +87,9 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
 
 
     @Override
-    public void showMessage(View c,@StringRes int resId) {
+    public void showMessage(View c, @StringRes int resId) {
         if (mActivity != null) {
-            mActivity.showMessage(c,resId);
+            mActivity.showMessage(c, resId);
 
         }
     }
