@@ -53,9 +53,10 @@ public interface MainActivityMvpView extends MvpView {
 
     View getSnackbarView();
 
+
     Context getContext();
 
     void proceedToOrderActivity();
 
-
+    String getSelectedServiceIdFromActivity();
 }

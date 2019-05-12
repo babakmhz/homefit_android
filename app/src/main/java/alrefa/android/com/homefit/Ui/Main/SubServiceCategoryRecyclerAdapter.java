@@ -62,6 +62,8 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
 
 
     public void addItems(List<MainRequests.Services> data) {
+        if (servicesDataModels.size()>0)
+            servicesDataModels.clear();
         servicesDataModels.addAll(data);
         notifyDataSetChanged();
     }

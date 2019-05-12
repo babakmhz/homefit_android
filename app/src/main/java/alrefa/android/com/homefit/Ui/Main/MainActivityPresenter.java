@@ -172,6 +172,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     @Override
     public void onSubmitButtonClicked() {
 
+        // TODO: 5/10/19 validate this
         if (getMvpView().getSelectedServices() == null ||
                 getMvpView().getSelectedServices().size() <= 0) {
             getMvpView().showMessage(getMvpView().getSnackbarView(),

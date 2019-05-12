@@ -22,4 +22,5 @@
     <string name="please_choose_your_services">Please Choose Your Services</string>
     <string name="please_enter_your_address_or_choose_by_tapping_on_map">Please Enter Your Address Or Choose By Tapping On Map</string>
     <string name="total_cost">Total cost</string>
+    <string name="choose_date">Choose Date</string>
 </resources>

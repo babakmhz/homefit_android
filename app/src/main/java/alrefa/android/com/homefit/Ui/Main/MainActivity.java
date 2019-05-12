@@ -14,6 +14,7 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -71,6 +72,8 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.recycler_sub_categories)
     RecyclerView recyclerSubCategories;
 
+    @BindView(R.id.swipeToRefresh)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @BindView(R.id.text_bannerslider_indicator)
     TextView textBannersliderIndicator;
@@ -109,6 +112,10 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.text_location_indicator)
     TextView textLocationIndicator;
 
+
+    @Inject
+    BottomSheetMvpPresenter<BottomSheetMvpView> bottomSheetMvpPresenter;
+
     @BindView(R.id.editText_address_inDetail)
     EditText editTextAddressInDetail;
 
@@ -129,6 +136,9 @@ public class MainActivity extends BaseActivity
     @Inject
     Geocoder geocoder;
 
+    @Inject
+    BottomSheetFragment bottomSheetFragment;
+
     @BindView(R.id.editText_description)
     EditText editTextDescription;
 
@@ -137,6 +147,7 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.fab_find_me)
     FloatingActionButton findMeFab;
+
 
 
     private Animation visibilityAnim;
@@ -148,6 +159,7 @@ public class MainActivity extends BaseActivity
     private Location current_location;
     private GoogleApiClient googleApiClient;
     private BottomSheetBehavior bottomSheetBehavior;
+    private String serviceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,7 +199,7 @@ public class MainActivity extends BaseActivity
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         initializeBoldFonts();
-        // TODO: 5/5/19 get last known location
+        // TODO: 5/5/19 get last known location runtime permission
 //        mPresenter.getLastKnownLocation(getApplicationContext());
         supportMapFragment = (GoogleMapsCustomSupportFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mPresenter.prepareSliders();
@@ -196,6 +208,16 @@ public class MainActivity extends BaseActivity
         visibilityAnim = AnimationUtils.loadAnimation(this, R.anim.sub_category_gone_anim);
         supportMapFragment.getMapAsync(this);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPresenter.prepareSliders();
+                mPresenter.prepareAvailableServices();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        bottomSheetMvpPresenter.onAttach(bottomSheetFragment);
 
     }
 
@@ -377,15 +399,9 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void showBottomSheetView() {
-        //if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-        // bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
-        //}
-
-        BttomsheetFragment bottomSheetFragment = new BttomsheetFragment();
-        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
-
+        bottomSheetFragment.show(getSupportFragmentManager(),"");
     }
+
 
     @Override
     public void onRequestLocationNotPrepared() {
@@ -417,6 +433,7 @@ public class MainActivity extends BaseActivity
         return drawerLayout;
     }
 
+
     @Override
     public Context getContext() {
         return this;
@@ -425,6 +442,12 @@ public class MainActivity extends BaseActivity
     @Override
     public void proceedToOrderActivity() {
 
+    }
+
+    @Override
+    public String getSelectedServiceIdFromActivity() {
+
+        return this.serviceId;
     }
 
 
@@ -439,6 +462,11 @@ public class MainActivity extends BaseActivity
                 last_selected_categories, categories, context);
 
 
+    }
+
+    @Override
+    public void setSelectedServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
     @Override
@@ -496,9 +524,11 @@ public class MainActivity extends BaseActivity
             onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
     }
 
+
     @OnClick(R.id.bt_submit)
     public void onSubmitButtonClicked() {
         mPresenter.onSubmitButtonClicked();
-
+        bottomSheetMvpPresenter.getDateTime(serviceId);
     }
+
 }

@@ -40,7 +40,7 @@ public abstract class BaseBottomSheetFragment extends BottomSheetDialogFragment 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(false);
+//        setHasOptionsMenu(false);
     }
 
     @Override

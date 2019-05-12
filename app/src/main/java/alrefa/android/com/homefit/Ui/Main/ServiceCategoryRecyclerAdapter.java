@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.R;
@@ -31,7 +33,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
     private int last_selected_position = -1;
     private MainRequests.CategoriesRequests last_selected_category = null;
 
-
+    @Inject
     public ServiceCategoryRecyclerAdapter(@ActivityContext Context context
             , List<MainRequests.CategoriesRequests> categoryDataModels, CallBack mCallback) {
         this.context = context;
@@ -61,6 +63,8 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
 
 
     public void addItems(List<MainRequests.CategoriesRequests> data) {
+        if (categoryDataModels.size()>0)
+            categoryDataModels.clear();
         categoryDataModels.addAll(data);
         notifyDataSetChanged();
     }
@@ -73,6 +77,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
                                    MainRequests.CategoriesRequests categories,
                                    Context context);
 
+        void setSelectedServiceId(String id);
     }
 
     public class CategoryViewHolder extends BaseViewHolder {
@@ -124,7 +129,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
                     .into(image_category);
 
 
-
+            mCallback.setSelectedServiceId(String.valueOf(each_item.getId()));
         }
 
         public void clearData(){

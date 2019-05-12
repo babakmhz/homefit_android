@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
+import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
 import io.reactivex.Single;
@@ -43,5 +44,10 @@ public class DataManager implements DataManagerHelper {
     @Override
     public Single<List<MainRequests.CategoriesRequests>> getAvailableServices(String token) {
         return apiHelper.getAvailableServices(token);
+    }
+
+    @Override
+    public Single<List<DateTimeDataModel>> getDateServiceDateTime(String token, String service_id) {
+        return apiHelper.getDateServiceDateTime(token,service_id);
     }
 }
