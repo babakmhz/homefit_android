@@ -16,6 +16,7 @@ import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseViewHolder;
+import alrefa.android.com.homefit.Utils.AppUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,10 +24,10 @@ public class DatePickerRecyclerAdapter extends RecyclerView.Adapter<DatePickerRe
 
 
     private final Context context;
-    private List<DateTimeDataModel> datesList;
+    private List<DateTimeDataModel.Date> datesList;
 
     @Inject
-    public DatePickerRecyclerAdapter(@ActivityContext Context context, List<DateTimeDataModel> datesList) {
+    public DatePickerRecyclerAdapter(@ActivityContext Context context, List<DateTimeDataModel.Date> datesList) {
         this.context = context;
         this.datesList = datesList;
     }
@@ -50,7 +51,7 @@ public class DatePickerRecyclerAdapter extends RecyclerView.Adapter<DatePickerRe
         else return 0;
     }
 
-    public void setData(List<DateTimeDataModel> data) {
+    public void setData(List<DateTimeDataModel.Date> data) {
         if (datesList.size()>0)
             datesList.clear();
         datesList.addAll(data);
@@ -77,9 +78,10 @@ public class DatePickerRecyclerAdapter extends RecyclerView.Adapter<DatePickerRe
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            DateTimeDataModel datetime = datesList.get(position);
-            textDate.setText(datetime.getDate().getDate());
-            textDayName.setText(datetime.getTime().getTime());
+            DateTimeDataModel.Date date = datesList.get(position);
+            String dateInfo[] = AppUtils.FixDateEnglish(date.getDate());
+            textDate.setText(dateInfo[0]+" "+dateInfo[1]);
+            textDayName.setText(dateInfo[2]);
         }
 
         @Override

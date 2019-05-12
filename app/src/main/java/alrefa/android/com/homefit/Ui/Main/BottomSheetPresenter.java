@@ -1,5 +1,6 @@
 package alrefa.android.com.homefit.Ui.Main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -32,7 +33,12 @@ public class BottomSheetPresenter<V extends BottomSheetMvpView> extends BasePres
                 .subscribeOn(getSchedulerProvider().io()).observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<List<DateTimeDataModel>>() {
                     @Override
                     public void accept(List<DateTimeDataModel> models) throws Exception {
-                        getMvpView().onAvailableDateTimesFetched(models);
+                        List<DateTimeDataModel.Date> dates = new ArrayList<>();
+                        for (DateTimeDataModel model :
+                                models) {
+                            dates.add(model.getDate());
+                        }
+                        getMvpView().onAvailableDateTimesFetched(dates);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

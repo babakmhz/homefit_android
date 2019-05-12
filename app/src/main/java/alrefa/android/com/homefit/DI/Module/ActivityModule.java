@@ -188,7 +188,7 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    public List<DateTimeDataModel> ProvidesDatesList() {
+    public List<DateTimeDataModel.Date> ProvidesDatesList() {
         return new ArrayList<>();
     }
 }

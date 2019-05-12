@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import alrefa.android.com.homefit.Utils.calendar.CivilDate;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
 
@@ -84,4 +85,62 @@ public final class AppUtils {
         }
     }
 */
+    public static String[] FixDateEnglish(String date) {
+        //0 index of array is month name, 1 is monthName,2 is day of month number
+
+        String dateDateName[] = new String[3];
+        CivilDate civilDate = new CivilDate();
+        civilDate.setYear(Integer.parseInt(date.substring(0, date.indexOf("-"))));
+        civilDate.setMonth(Integer.parseInt(date.substring(date.indexOf("-") + 1, date.lastIndexOf("-"))));
+        civilDate.setDayOfMonth(Integer.parseInt(date.substring(date.lastIndexOf("-") + 1)));
+        dateDateName[0] = getCivilMonthName(civilDate.getMonth());
+        dateDateName[1] = String.valueOf(civilDate.getDayOfMonth());
+        dateDateName[2] = getEnglishDayOfWeekName(civilDate.getDayOfWeek());
+        return dateDateName;
+    }
+
+    public static String getCivilMonthName(int monthNumber) {
+        String month[] = {"", "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"};
+
+        return month[monthNumber];
+    }
+
+    public static String getEnglishDayOfWeekName(int dayIndex) {
+        String weekDays[] = {"","Sunday",
+                "Monday",
+                "Tuesday",
+                "Thursday",
+                "Wednesday",
+                "Friday",
+                "Saturday"};
+        return weekDays[dayIndex];
+    }
+
+    public static String getArabicMonthName(int monthNumber) {
+        String month[] = {"",
+                "مُحَرَّم",
+                "صَفَر",
+                "رَبِيع ٱلْأَوَّل",
+                "ربيع الثاني",
+                "جُمَادَىٰ ٱلْأُولَىٰ",
+                "جُمَادَىٰ ٱلْآخِرَة",
+                "رَجَب",
+                "شَعْبَان",
+                "رَمَضَان",
+                "شَوَّال",
+                "ذُو ٱلْقَعْدَة",
+                "ذُو ٱلْحِجَّة"};
+        return month[monthNumber];
+    }
 }

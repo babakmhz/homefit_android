@@ -95,7 +95,7 @@ public class BottomSheetFragment
 
 
     @Override
-    public void onAvailableDateTimesFetched(List<DateTimeDataModel> models) {
+    public void onAvailableDateTimesFetched(List<DateTimeDataModel.Date> models) {
         datePickerRecyclerAdapter.setData(models);
         recyclerDateTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerDateTime.setAdapter(datePickerRecyclerAdapter);
