@@ -91,8 +91,8 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
         ImageView image_service;
         @BindView(R.id.text_service_title)
         TextView text_serviceTitle;
-        @BindView(R.id.text_service_price)
-        TextView text_servicePrice;
+//        @BindView(R.id.text_service_price)
+//        TextView text_servicePrice;
         @BindView(R.id.view_dark_indicator)
         View view_darkIndicator;
         @BindView(R.id.selected_mark)
@@ -118,7 +118,7 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
 
             text_serviceTitle.setText(each_item.getTitle());
             // TODO: 2/28/19 handle costs for each currency (libraries in notes.txt file)
-            text_servicePrice.setText(String.valueOf(each_item.getPrice()) + "$");
+//            text_servicePrice.setText(String.valueOf(each_item.getPrice()) + "$");
 
         }
 

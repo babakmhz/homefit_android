@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
@@ -42,6 +43,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -149,7 +151,6 @@ public class MainActivity extends BaseActivity
     FloatingActionButton findMeFab;
 
 
-
     private Animation visibilityAnim;
     private CameraUpdate cameraUpdate;
     private GoogleMap googleMap;
@@ -213,6 +214,8 @@ public class MainActivity extends BaseActivity
             public void onRefresh() {
                 mPresenter.prepareSliders();
                 mPresenter.prepareAvailableServices();
+                recyclerSubCategories.setVisibility(View.GONE);
+                subCategoryIndicatorContainer.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -399,7 +402,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void showBottomSheetView() {
-        bottomSheetFragment.show(getSupportFragmentManager(),"");
+        bottomSheetFragment.show(getSupportFragmentManager(), "");
     }
 
 
@@ -431,6 +434,16 @@ public class MainActivity extends BaseActivity
     @Override
     public View getSnackbarView() {
         return drawerLayout;
+    }
+
+    @Override
+    public List<String> getSelectedServiceIds() {
+        List<String> serviceIds = new ArrayList<>();
+        for (MainRequests.Services service:
+             getSelectedServices()) {
+            serviceIds.add(String.valueOf(service.getId()));
+        }
+        return serviceIds;
     }
 
 
@@ -521,14 +534,15 @@ public class MainActivity extends BaseActivity
     @Override
     public void onLocationChanged(Location location) {
         if (location != null)
-            onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
+            onMapClick(new LatLng(location.getLongitude(), location.getLatitude()));
     }
 
 
     @OnClick(R.id.bt_submit)
     public void onSubmitButtonClicked() {
         mPresenter.onSubmitButtonClicked();
-        bottomSheetMvpPresenter.getDateTime(serviceId);
+        bottomSheetMvpPresenter.getProviders(this);
+//        bottomSheetMvpPresenter.getDateTime(serviceId);
     }
 
 }

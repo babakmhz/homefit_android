@@ -11,6 +11,7 @@ import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
 import io.reactivex.Single;
 
@@ -49,5 +50,10 @@ public class DataManager implements DataManagerHelper {
     @Override
     public Single<List<DateTimeDataModel>> getDateServiceDateTime(String token, String service_id) {
         return apiHelper.getDateServiceDateTime(token,service_id);
+    }
+
+    @Override
+    public Single<List<providersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
+        return apiHelper.getAvailableProviders(token,category_id,service_ids);
     }
 }

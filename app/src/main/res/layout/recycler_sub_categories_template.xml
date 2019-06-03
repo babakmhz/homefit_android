@@ -68,21 +68,22 @@
             android:textSize="17sp"
             android:textColor="#000"
             android:textStyle="bold"
+            android:paddingBottom="5dp"
             tools:text="title" />
 
-        <TextView
-            android:id="@+id/text_service_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="5dp"
-            android:textColor="@color/colorAccent"
-            android:textAlignment="center"
-            android:textStyle="italic"
-            tools:text="20$" />
+        <!--<TextView-->
+            <!--android:id="@+id/text_service_price"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingStart="5dp"-->
+            <!--android:paddingEnd="5dp"-->
+            <!--android:paddingBottom="5dp"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textStyle="italic"-->
+            <!--tools:text="20$" />-->
     </LinearLayout>
 
 

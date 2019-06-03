@@ -23,27 +23,27 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DatePickerRecyclerAdapter extends RecyclerView.Adapter<DatePickerRecyclerAdapter.ViewHolder> {
+public class ProvidersRecyclerAdapter extends RecyclerView.Adapter<ProvidersRecyclerAdapter.ViewHolder> {
 
 
     private final Context context;
     private List<DateTimeDataModel.Date> datesList;
 
     @Inject
-    public DatePickerRecyclerAdapter(@ActivityContext Context context, List<DateTimeDataModel.Date> datesList) {
+    public ProvidersRecyclerAdapter(@ActivityContext Context context, List<DateTimeDataModel.Date> datesList) {
         this.context = context;
         this.datesList = datesList;
     }
 
     @NonNull
     @Override
-    public DatePickerRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ProvidersRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_date_picker_template, viewGroup, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DatePickerRecyclerAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ProvidersRecyclerAdapter.ViewHolder viewHolder, int i) {
         viewHolder.onBind(i);
     }
 

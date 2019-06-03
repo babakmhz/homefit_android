@@ -6,6 +6,7 @@ import java.util.List;
 
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
 import alrefa.android.com.homefit.Utils.ApiEndpoints;
 import io.reactivex.Single;
 
@@ -36,5 +37,14 @@ public class AppApiService implements ApiHelper {
                 .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token)
                 .addQueryParameter("id", service_id)
                 .build().getObjectListSingle(DateTimeDataModel.class);
+    }
+
+    @Override
+    public Single<List<providersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
+        return Rx2AndroidNetworking.get(ApiEndpoints.AVAILABLE_PROVIDERS_ENDPOINT)
+                .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token)
+                .addQueryParameter("category", category_id)
+                .addQueryParameter("services",service_ids.toString())
+                .build().getObjectListSingle(providersDataModel.class);
     }
 }
