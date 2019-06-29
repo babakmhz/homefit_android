@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseViewHolder;
 import alrefa.android.com.homefit.Utils.AppLogger;
@@ -27,19 +28,19 @@ public class ProvidersRecyclerAdapter extends RecyclerView.Adapter<ProvidersRecy
 
 
     private final Context context;
-    private List<DateTimeDataModel.Date> datesList;
+    private List<providersDataModel> providersDataModels;
 
     @Inject
-    public ProvidersRecyclerAdapter(@ActivityContext Context context, List<DateTimeDataModel.Date> datesList) {
+    public ProvidersRecyclerAdapter(@ActivityContext Context context, List<providersDataModel> providersDataModels) {
         this.context = context;
-        this.datesList = datesList;
+        this.providersDataModels = providersDataModels;
     }
 
     @NonNull
     @Override
     public ProvidersRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_date_picker_template, viewGroup, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_service_providers_template, viewGroup, false));
     }
 
     @Override
@@ -49,15 +50,15 @@ public class ProvidersRecyclerAdapter extends RecyclerView.Adapter<ProvidersRecy
 
     @Override
     public int getItemCount() {
-        if (datesList != null)
-            return datesList.size();
+        if (providersDataModels != null)
+            return providersDataModels.size();
         else return 0;
     }
 
-    public void setData(List<DateTimeDataModel.Date> data) {
-        if (datesList.size() > 0)
-            datesList.clear();
-        datesList.addAll(data);
+    public void setData(List<providersDataModel> data) {
+        if (providersDataModels.size() > 0)
+            providersDataModels.clear();
+        providersDataModels.addAll(data);
         notifyDataSetChanged();
     }
 
@@ -81,17 +82,10 @@ public class ProvidersRecyclerAdapter extends RecyclerView.Adapter<ProvidersRecy
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            DateTimeDataModel.Date date = datesList.get(position);
-            String dateInfo[] = AppUtils.FixDateEnglish(date.getDate());
-            textDate.setText(dateInfo[0] + " " + dateInfo[1]);
-            textDayName.setText(dateInfo[2]);
+
         }
 
-        @OnClick(R.id.date_container)
-        public void onDateClicked() {
-            AppLogger.d("date picker");
-            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
-        }
+
 
         @Override
         protected void clear() {

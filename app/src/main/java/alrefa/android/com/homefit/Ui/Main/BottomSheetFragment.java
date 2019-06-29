@@ -16,6 +16,7 @@ import javax.inject.Inject;
 
 import alrefa.android.com.homefit.DI.Component.ActivityComponent;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseBottomSheetFragment;
 import butterknife.BindView;
@@ -32,6 +33,9 @@ public class BottomSheetFragment
 
     @BindView(R.id.recycler_dateTime)
     RecyclerView recyclerDateTime;
+
+    @Inject
+    ProvidersRecyclerAdapter providersRecyclerAdapter;
 
     @Inject
     BottomSheetMvpPresenter<BottomSheetMvpView> mPresenter;
@@ -99,5 +103,10 @@ public class BottomSheetFragment
         datePickerRecyclerAdapter.setData(models);
         recyclerDateTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerDateTime.setAdapter(datePickerRecyclerAdapter);
+    }
+
+    @Override
+    public void onProvidersPrepared(List<providersDataModel> providersDataModels) {
+
     }
 }

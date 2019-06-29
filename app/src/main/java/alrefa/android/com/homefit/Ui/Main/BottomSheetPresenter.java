@@ -61,7 +61,8 @@ public class BottomSheetPresenter<V extends BottomSheetMvpView> extends BasePres
             .observeOn(getSchedulerProvider().ui()).subscribe(new Consumer<List<providersDataModel>>() {
                         @Override
                         public void accept(List<providersDataModel> providersDataModels) throws Exception {
-                            AppLogger.i("models",providersDataModels);
+                            AppLogger.d("models:",providersDataModels);
+                            getMvpView().onProvidersPrepared(providersDataModels);
                         }
                     }));
         }

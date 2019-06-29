@@ -17,6 +17,7 @@ import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
@@ -112,7 +113,8 @@ public class ActivityModule {
     public List<MainRequests.CategoriesRequests> ProvideServiceCategoryList() {
         return new ArrayList<>();
     }
-//
+
+    //
 //    @Provides
 //    @PerActivity
 //    public BottomSheetMvpView ProvideBottomSheetMvpView(){
@@ -136,7 +138,6 @@ public class ActivityModule {
     public BottomSheetFragment ProvideBottomSheetFragment() {
         return new BottomSheetFragment();
     }
-
 
 
     @Provides
@@ -191,4 +192,11 @@ public class ActivityModule {
     public List<DateTimeDataModel.Date> ProvidesDatesList() {
         return new ArrayList<>();
     }
+
+    @Provides
+    @PerActivity
+    public List<providersDataModel> ProvidesProvidersList() {
+        return new ArrayList<>();
+    }
+
 }
