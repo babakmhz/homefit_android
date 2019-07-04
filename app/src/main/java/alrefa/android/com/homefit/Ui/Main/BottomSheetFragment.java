@@ -3,12 +3,13 @@ package alrefa.android.com.homefit.Ui.Main;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import javax.inject.Inject;
 
 import alrefa.android.com.homefit.DI.Component.ActivityComponent;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
-import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseBottomSheetFragment;
 import butterknife.BindView;
@@ -24,18 +25,38 @@ import butterknife.ButterKnife;
 
 public class BottomSheetFragment
         extends BaseBottomSheetFragment implements
-        BottomSheetMvpView{
+        BottomSheetMvpView {
 
 
     @Inject
     MainActivityMvpView mainActivityMvpView;
 
 
-    @BindView(R.id.recycler_dateTime)
-    RecyclerView recyclerDateTime;
+    @BindView(R.id.time_indicator_container)
+    LinearLayout timeIndicatorContainer;
+
+    @BindView(R.id.date_indicator_container)
+    LinearLayout dateIndicatorContainer;
+
+    @BindView(R.id.recycler_provider)
+    RecyclerView recyclerProviders;
+
+    @BindView(R.id.scroll_bottomSheet)
+    NestedScrollView scrollView;
+
+    @BindView(R.id.recycler_date)
+    RecyclerView recyclerDate;
+
+    @BindView(R.id.recycler_time)
+    RecyclerView recyclerTime;
+
+
 
     @Inject
     ProvidersRecyclerAdapter providersRecyclerAdapter;
+
+    @Inject
+    TimePickerRecyclerAdapter timePickerRecyclerAdapter;
 
     @Inject
     BottomSheetMvpPresenter<BottomSheetMvpView> mPresenter;
@@ -63,7 +84,7 @@ public class BottomSheetFragment
         if (activityComponent != null) {
             activityComponent.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
-//            mPresenter.onAttach(this);
+            mPresenter.onAttach(this);
         }
 
         return view;
@@ -99,14 +120,48 @@ public class BottomSheetFragment
 
 
     @Override
-    public void onAvailableDateTimesFetched(List<DateTimeDataModel.Date> models) {
+    public void onAvailableDatesFetched(List<DateTimeDataModel.Date> models) {
+        if (recyclerDate.getVisibility() == View.GONE)
+            recyclerDate.setVisibility(View.VISIBLE);
+
+        if (dateIndicatorContainer.getVisibility() == View.GONE)
+            dateIndicatorContainer.setVisibility(View.VISIBLE);
         datePickerRecyclerAdapter.setData(models);
-        recyclerDateTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerDateTime.setAdapter(datePickerRecyclerAdapter);
+        recyclerDate.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerDate.setAdapter(datePickerRecyclerAdapter);
     }
 
     @Override
-    public void onProvidersPrepared(List<providersDataModel> providersDataModels) {
+    public void onAvailableTimesFetched(List<DateTimeDataModel.Time> models) {
+        if (recyclerTime.getVisibility() == View.GONE)
+            recyclerTime.setVisibility(View.VISIBLE);
 
+        if (timeIndicatorContainer.getVisibility() == View.GONE)
+            timeIndicatorContainer.setVisibility(View.VISIBLE);
+
+        timePickerRecyclerAdapter.setData(models);
+        recyclerTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerTime.setAdapter(timePickerRecyclerAdapter);
+        scrollView.scrollTo(0,100);
+    }
+
+    public RecyclerView getProviderRecycler() {
+        return this.recyclerProviders;
+    }
+
+    public RecyclerView getDatePickerRecycler() {
+        return this.recyclerDate;
+    }
+
+    public RecyclerView getTimeRecycler() {
+        return this.recyclerTime;
+    }
+
+
+    @Override
+    public void onProvidersPrepared(List<ProvidersDataModel> ProvidersDataModels) {
+        providersRecyclerAdapter.setData(ProvidersDataModels);
+        recyclerProviders.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerProviders.setAdapter(providersRecyclerAdapter);
     }
 }

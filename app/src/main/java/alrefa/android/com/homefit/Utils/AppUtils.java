@@ -9,6 +9,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Utils.calendar.CivilDate;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
@@ -117,7 +120,7 @@ public final class AppUtils {
     }
 
     public static String getEnglishDayOfWeekName(int dayIndex) {
-        String weekDays[] = {"","Sunday",
+        String weekDays[] = {"", "Sunday",
                 "Monday",
                 "Tuesday",
                 "Thursday",
@@ -142,5 +145,40 @@ public final class AppUtils {
                 "ذُو ٱلْقَعْدَة",
                 "ذُو ٱلْحِجَّة"};
         return month[monthNumber];
+    }
+
+    public static String fixTime(String time) {
+        return time.substring(0, time.lastIndexOf(":"));
+    }
+
+
+    public static void switchToSelectedViewState_date(Context context,
+                                                      View container, TextView textdayName, TextView text_date) {
+        container.setBackgroundResource(R.drawable.selector_date_choose_selected);
+        textdayName.setTextColor(context.getResources().getColor(R.color.colorWhite));
+        text_date.setTextColor(context.getResources().getColor(R.color.colorWhite));
+    }
+
+    public static void switchToNormalViewState_date(Context context,
+                                                    View container,
+                                                    TextView textdayName,
+                                                    TextView text_date) {
+        container.setBackgroundResource(R.drawable.selector_date_choose);
+        textdayName.setTextColor(context.getResources().getColor(R.color.black));
+        text_date.setTextColor(context.getResources().getColor(R.color.color_default_text_view_text));
+    }
+
+
+    public static void switchToSelectedViewState_time(Context context,
+                                                      View container, TextView time) {
+        container.setBackgroundResource(R.drawable.selector_date_choose_selected);
+        time.setTextColor(context.getResources().getColor(R.color.colorWhite));
+    }
+
+    public static void switchToNormalViewState_time(Context context,
+                                                    View container,
+                                                    TextView time) {
+        container.setBackgroundResource(R.drawable.selector_date_choose);
+        time.setTextColor(context.getResources().getColor(R.color.black));
     }
 }

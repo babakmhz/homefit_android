@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
@@ -48,11 +47,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
 import alrefa.android.com.homefit.Utils.AppLogger;
+import alrefa.android.com.homefit.Utils.AppUtils;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,7 +65,10 @@ public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
         , SubServiceCategoryRecyclerAdapter.CallBack,
         OnMapReadyCallback, GoogleMap.OnMapClickListener,
-        LocationSource.OnLocationChangedListener {
+        LocationSource.OnLocationChangedListener,
+        ProvidersRecyclerAdapter.CallBack,
+        DatePickerRecyclerAdapter.CallBack,
+        TimePickerRecyclerAdapter.CallBack {
 
     @Inject
     ServiceCategoryRecyclerAdapter serviceCategoryRecyclerAdapter;
@@ -161,6 +166,9 @@ public class MainActivity extends BaseActivity
     private GoogleApiClient googleApiClient;
     private BottomSheetBehavior bottomSheetBehavior;
     private String serviceId;
+    private DateTimeDataModel.Date picked_date = null;
+    private ProvidersDataModel picked_provider = null;
+    private DateTimeDataModel.Time picked_time = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,15 +198,18 @@ public class MainActivity extends BaseActivity
             mPresenter.getLastKnownLocation(getApplicationContext());
     }
 
+
     @Override
     protected void setUp() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+/*
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+*/
         initializeBoldFonts();
         // TODO: 5/5/19 get last known location runtime permission
 //        mPresenter.getLastKnownLocation(getApplicationContext());
@@ -239,9 +250,9 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -402,7 +413,8 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void showBottomSheetView() {
-        bottomSheetFragment.show(getSupportFragmentManager(), "");
+        if (!bottomSheetFragment.isAdded())
+            bottomSheetFragment.show(getSupportFragmentManager(), "");
     }
 
 
@@ -439,8 +451,8 @@ public class MainActivity extends BaseActivity
     @Override
     public List<String> getSelectedServiceIds() {
         List<String> serviceIds = new ArrayList<>();
-        for (MainRequests.Services service:
-             getSelectedServices()) {
+        for (MainRequests.Services service :
+                getSelectedServices()) {
             serviceIds.add(String.valueOf(service.getId()));
         }
         return serviceIds;
@@ -545,4 +557,58 @@ public class MainActivity extends BaseActivity
 //        bottomSheetMvpPresenter.getDateTime(serviceId);
     }
 
+    @Override
+    public void onProviderSelected(int last_selected_item, ProvidersDataModel provider) {
+        this.picked_provider = provider;
+        if (last_selected_item != -1) {
+            bottomSheetFragment.getProviderRecycler().getChildAt(last_selected_item)
+                    .findViewById(R.id.selected_mark).setVisibility(View.GONE);
+            bottomSheetFragment.getProviderRecycler()
+                    .getChildAt(last_selected_item)
+                    .findViewById(R.id.view_dark_indicator).setVisibility(View.GONE);
+        }
+        bottomSheetMvpPresenter.getDateTime(String.valueOf(provider.getId()));
+    }
+
+    @Override
+    public void onProviderRelease() {
+        picked_provider = null;
+    }
+
+    @Override
+    public void onDateSelected(int last_selected_position,
+                               DateTimeDataModel.Date date) {
+        this.picked_date = date;
+
+        if (last_selected_position != -1) {
+            View view = bottomSheetFragment.getDatePickerRecycler()
+                    .getChildAt(last_selected_position);
+            AppUtils.switchToNormalViewState_date(this,
+                    view.findViewById(R.id.main_container),
+                    (TextView) view.findViewById(R.id.text_dayName),
+                    (TextView) view.findViewById(R.id.text_date));
+        }
+    }
+
+    @Override
+    public void onDateRelease() {
+        picked_date = null;
+    }
+
+    @Override
+    public void onTimeSelected(int last_selected_position, DateTimeDataModel.Time time) {
+        this.picked_time = time;
+        if (last_selected_position != -1) {
+            View view = bottomSheetFragment.getTimeRecycler()
+                    .getChildAt(last_selected_position);
+            AppUtils.switchToNormalViewState_time(this,
+                    view.findViewById(R.id.time_container),
+                    (TextView) view.findViewById(R.id.text_time));
+        }
+    }
+
+    @Override
+    public void onTimeRelease() {
+        picked_date = null;
+    }
 }

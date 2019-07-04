@@ -17,7 +17,7 @@ import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
-import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
@@ -30,10 +30,13 @@ import alrefa.android.com.homefit.Ui.Main.BottomSheetFragment;
 import alrefa.android.com.homefit.Ui.Main.BottomSheetMvpPresenter;
 import alrefa.android.com.homefit.Ui.Main.BottomSheetMvpView;
 import alrefa.android.com.homefit.Ui.Main.BottomSheetPresenter;
+import alrefa.android.com.homefit.Ui.Main.DatePickerRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.MainActivity;
 import alrefa.android.com.homefit.Ui.Main.MainActivityMvpView;
+import alrefa.android.com.homefit.Ui.Main.ProvidersRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.ServiceCategoryRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.SubServiceCategoryRecyclerAdapter;
+import alrefa.android.com.homefit.Ui.Main.TimePickerRecyclerAdapter;
 import alrefa.android.com.homefit.Utils.rx.AppSchedulerProvider;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import dagger.Module;
@@ -132,6 +135,12 @@ public class ActivityModule {
         return (MainActivity) activity;
     }
 
+    @Provides
+    @PerActivity
+    public DatePickerRecyclerAdapter.CallBack ProvideDatepickerRecyclerCallback() {
+        return (MainActivity) activity;
+    }
+
 
     @Provides
     @PerActivity
@@ -151,6 +160,19 @@ public class ActivityModule {
     @Provides
     @PerActivity
     public SubServiceCategoryRecyclerAdapter.CallBack ProvideSubCategoryRecyclerCallback() {
+        return (MainActivity) activity;
+    }
+
+    @Provides
+    @PerActivity
+    public ProvidersRecyclerAdapter.CallBack ProvideProvidersRecyclerCallback() {
+        return (MainActivity) activity;
+    }
+
+
+    @Provides
+    @PerActivity
+    public TimePickerRecyclerAdapter.CallBack ProvideTimePickerRecyclerCallback() {
         return (MainActivity) activity;
     }
 
@@ -195,7 +217,13 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    public List<providersDataModel> ProvidesProvidersList() {
+    public List<DateTimeDataModel.Time> ProvidesTimesList() {
+        return new ArrayList<>();
+    }
+
+    @Provides
+    @PerActivity
+    public List<ProvidersDataModel> ProvidesProvidersList() {
         return new ArrayList<>();
     }
 

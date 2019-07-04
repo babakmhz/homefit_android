@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/service_container"
+    android:id="@+id/provider_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
@@ -14,6 +14,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     app:cardCornerRadius="2dp"
+
     app:cardElevation="4dp">
 
     <LinearLayout
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_service"
+                android:id="@+id/image_provider"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/coffee_making_app" />
@@ -37,12 +38,12 @@
                 android:id="@+id/view_dark_indicator"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_alignBottom="@+id/image_service"
+                android:layout_alignBottom="@+id/image_provider"
                 android:layout_marginBottom="0dp"
-                android:alpha="0.9"
+                android:alpha="0.7"
                 android:animateLayoutChanges="true"
                 android:background="@drawable/selector_view_dark_indicator_background_rounded"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/selected_mark"
@@ -53,19 +54,32 @@
                 android:src="@drawable/ic_check"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-                android:visibility="visible" />
+                android:visibility="gone" />
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/text_service_title"
-            android:layout_width="match_parent"
+            android:id="@+id/text_provider_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="17sp"
+            android:textColor="#000"
             android:textStyle="bold"
             tools:text="title" />
+
+        <TextView
+            android:id="@+id/text_provider_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            tools:text="1324$" />
+
 
     </LinearLayout>
 

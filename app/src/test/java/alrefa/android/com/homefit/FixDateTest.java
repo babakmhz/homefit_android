@@ -15,11 +15,13 @@ public class FixDateTest {
 
     private String sampleDate;
     private CivilDate civilDate;
+    private String sampleTime;
 
 
     @Before
     public void before() {
         sampleDate = "2019-05-06";
+        sampleTime = "00:00:00";
         civilDate = new CivilDate();
         civilDate.setYear(2019);
         civilDate.setMonth(05);
@@ -57,5 +59,11 @@ public class FixDateTest {
         Assert.assertEquals("Monday", name);
     }
 
+
+    @Test
+    public void fixTimeText() {
+        String time = sampleTime.substring(0,sampleTime.lastIndexOf(":"));
+        Assert.assertEquals("00:00",time);
+    }
 
 }

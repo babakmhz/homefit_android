@@ -105,6 +105,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
             super.onBind(position);
             each_item = categoryDataModels.get(position);
             Glide.with(context).load(each_item.getImage_url())
+                    .centerCrop()
                     .into(image_category);
 
             text_catName.setText(each_item.getTitle());

@@ -23,8 +23,8 @@ public class MyApplication extends Application {
     @Inject
     DataManagerHelper mDataManager;
 
-    @Inject
-    CalligraphyConfig mCalligraphyConfig;
+//    @Inject
+//    CalligraphyConfig mCalligraphyConfig;
 
     private ApplicationComponent mApplicationComponent;
 
@@ -44,7 +44,7 @@ public class MyApplication extends Application {
         if (BuildConfig.DEBUG) {
             AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
         }
-        CalligraphyConfig.initDefault(mCalligraphyConfig);
+//        CalligraphyConfig.initDefault(mCalligraphyConfig);
 
     }
 

@@ -1,6 +1,7 @@
 package alrefa.android.com.homefit.Data;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -11,9 +12,12 @@ import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
-import alrefa.android.com.homefit.Data.Network.Model.providersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
+import alrefa.android.com.homefit.Utils.AppLogger;
 import io.reactivex.Single;
+
+import static android.support.constraint.Constraints.TAG;
 
 
 public class DataManager implements DataManagerHelper {
@@ -53,7 +57,8 @@ public class DataManager implements DataManagerHelper {
     }
 
     @Override
-    public Single<List<providersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
+    public Single<List<ProvidersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
+        Log.i(TAG, "getAvailableProviders: "+service_ids.toString());
         return apiHelper.getAvailableProviders(token,category_id,service_ids);
     }
 }

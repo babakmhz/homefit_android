@@ -22,7 +22,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubServiceCategoryRecyclerAdapter.CategoryViewHolder> {
+public class SubServiceCategoryRecyclerAdapter
+        extends RecyclerView.Adapter<SubServiceCategoryRecyclerAdapter.CategoryViewHolder> {
 
 
     private final Context context;
@@ -62,14 +63,17 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
 
 
     public void addItems(List<MainRequests.Services> data) {
-        if (servicesDataModels.size()>0)
+        if (servicesDataModels.size()>0){
+            selected_services.clear();
             servicesDataModels.clear();
+        }
         servicesDataModels.addAll(data);
         notifyDataSetChanged();
     }
 
     public void clear() {
         servicesDataModels.clear();
+        selected_services.clear();
         notifyDataSetChanged();
     }
 
@@ -114,6 +118,7 @@ public class SubServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<SubS
             each_item = servicesDataModels.get(position);
             // TODO: 3/1/19 implement animation for loading this image
             Glide.with(context).load(each_item.getImage_url())
+                    .centerCrop()
                     .into(image_service);
 
             text_serviceTitle.setText(each_item.getTitle());
