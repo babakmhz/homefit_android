@@ -16,11 +16,8 @@
 package alrefa.android.com.homefit.Utils;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 
 import java.io.IOException;
@@ -31,7 +28,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import alrefa.android.com.homefit.R;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public final class CommonUtils {
 
@@ -41,21 +38,31 @@ public final class CommonUtils {
         // This utility class is not publicly instantiable
     }
     // TODO: 12/28/18 make progress dialog and uncomment this function
-/*
 
-    public static ProgressDialog showLoadingDialog(Context context) {
-        ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.show();
-        if (progressDialog.getWindow() != null) {
-            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }
-        progressDialog.setContentView(R.layout.progress_dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        return progressDialog;
+    public static SweetAlertDialog showLoadingDialog(Context context, String title, String content) {
+        SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE)
+                .setTitleText(title)
+                .setContentText(content);
+        return dialog;
     }
-*/
+
+    public static SweetAlertDialog showSuccessDialog(Context context, String title
+            , String content, boolean cancleable) {
+        SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText(title)
+                .setContentText(content);
+        dialog.setCancelable(cancleable);
+        return dialog;
+    }
+
+    public static SweetAlertDialog showErrorDialog(Context context, String title
+            , String content, boolean cancleable) {
+        SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText(title)
+                .setContentText(content);
+        dialog.setCancelable(cancleable);
+        return dialog;
+    }
 
     @SuppressLint("all")
     public static String getDeviceId(Context context) {

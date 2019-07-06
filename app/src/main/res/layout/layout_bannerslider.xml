@@ -48,7 +48,7 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="@drawable/selector_round_imageview_card"
-            app:cardCornerRadius="@dimen/card_corner_standard"
+            app:cardCornerRadius="4dp"
             app:cardElevation="@dimen/standard_elevation"
             app:cardPreventCornerOverlap="false">
 
@@ -70,6 +70,7 @@
             android:padding="5dp">
 
             <ImageView
+
                 android:id="@+id/action_direction_bannerslider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +96,7 @@
                 android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_internet_" />
+
             <ImageView
                 android:id="@+id/action_call_bannerslider"
                 android:layout_width="wrap_content"

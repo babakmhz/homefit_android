@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
@@ -88,16 +89,16 @@ public abstract class BaseBottomSheetFragment extends BottomSheetDialogFragment 
     }
 
     @Override
-    public void showMessage(View contaier,String message) {
+    public void showMessage(View container,String message) {
         if (mActivity != null) {
-            mActivity.showMessage(contaier,message);
+            mActivity.showMessage(container,message);
         }
     }
 
     @Override
     public void showMessage(View container,@StringRes int resId) {
         if (mActivity != null) {
-            mActivity.showMessage(container,resId);
+            Snackbar.make(container,resId,Snackbar.LENGTH_LONG).show();
         }
     }
 

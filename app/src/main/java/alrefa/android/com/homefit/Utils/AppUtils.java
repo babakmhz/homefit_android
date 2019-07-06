@@ -181,4 +181,13 @@ public final class AppUtils {
         container.setBackgroundResource(R.drawable.selector_date_choose);
         time.setTextColor(context.getResources().getColor(R.color.black));
     }
+
+    public static String[] fixLocatoinFromString(String location){
+        String data[] = new String[2];
+        //first index in lat and second index in long
+        data[0] = location.substring(0,location.indexOf(","));
+        data[1] = location.substring(location.indexOf(",")+1);
+
+        return data;
+    }
 }

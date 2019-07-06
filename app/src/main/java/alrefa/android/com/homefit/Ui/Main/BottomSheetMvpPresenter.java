@@ -8,4 +8,7 @@ public interface BottomSheetMvpPresenter<V extends BottomSheetMvpView> extends M
 
     void getDateTime(String provider_id);
     void getProviders(MainActivityMvpView mainMvpView);
+
+    void submitOrder(MainActivityMvpView mainActivityMvpView);
+
 }

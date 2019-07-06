@@ -6,6 +6,7 @@ import java.util.List;
 
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.OrderDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.Utils.ApiEndpoints;
 import alrefa.android.com.homefit.Utils.AppLogger;
@@ -42,11 +43,20 @@ public class AppApiService implements ApiHelper {
 
     @Override
     public Single<List<ProvidersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
-        AppLogger.d("serviceIDS:!!! ",service_ids);
+        AppLogger.d("serviceIDS:!!! ", service_ids);
         return Rx2AndroidNetworking.get(ApiEndpoints.AVAILABLE_PROVIDERS_ENDPOINT)
                 .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token)
                 .addQueryParameter("category", category_id)
-                .addQueryParameter("services",service_ids.toString())
+                .addQueryParameter("services", service_ids.toString())
                 .build().getObjectListSingle(ProvidersDataModel.class);
+    }
+
+    @Override
+    public Single<OrderDataModel.Response> submitOrder(String token, OrderDataModel orderDataModel) {
+        return Rx2AndroidNetworking.post(ApiEndpoints.SUBMIT_ORDER_ENDPOINT)
+                .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token)
+                .addBodyParameter(orderDataModel)
+                .build()
+                .getObjectSingle(OrderDataModel.Response.class);
     }
 }

@@ -27,8 +27,8 @@ public class MainRequests {
         private String image_url;
 
         @Expose
-        @SerializedName("image_arabic")
-        private String image_arabic_url;
+        @SerializedName("webURL")
+        private String webURL;
 
 
         public int getId() {
@@ -63,12 +63,13 @@ public class MainRequests {
             this.image_url = image_url;
         }
 
-        public String getImage_arabic_url() {
-            return image_arabic_url;
+
+        public String getWebURL() {
+            return webURL;
         }
 
-        public void setImage_arabic_url(String image_arabic_url) {
-            this.image_arabic_url = image_arabic_url;
+        public void setWebURL(String webURL) {
+            this.webURL = webURL;
         }
     }
 

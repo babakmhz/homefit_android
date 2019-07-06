@@ -22,6 +22,7 @@ import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseBottomSheetFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BottomSheetFragment
         extends BaseBottomSheetFragment implements
@@ -31,9 +32,12 @@ public class BottomSheetFragment
     @Inject
     MainActivityMvpView mainActivityMvpView;
 
-
     @BindView(R.id.time_indicator_container)
     LinearLayout timeIndicatorContainer;
+
+    @BindView(R.id.main_container)
+    LinearLayout main_container;
+
 
     @BindView(R.id.date_indicator_container)
     LinearLayout dateIndicatorContainer;
@@ -120,6 +124,11 @@ public class BottomSheetFragment
 
 
     @Override
+    public void showMessage(View container, int resId) {
+        super.showMessage(container, resId);
+    }
+
+    @Override
     public void onAvailableDatesFetched(List<DateTimeDataModel.Date> models) {
         if (recyclerDate.getVisibility() == View.GONE)
             recyclerDate.setVisibility(View.VISIBLE);
@@ -129,6 +138,11 @@ public class BottomSheetFragment
         datePickerRecyclerAdapter.setData(models);
         recyclerDate.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerDate.setAdapter(datePickerRecyclerAdapter);
+    }
+
+    @Override
+    public void showMessage(View container, String message) {
+        super.showMessage(container, message);
     }
 
     @Override
@@ -163,5 +177,15 @@ public class BottomSheetFragment
         providersRecyclerAdapter.setData(ProvidersDataModels);
         recyclerProviders.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerProviders.setAdapter(providersRecyclerAdapter);
+    }
+
+    @Override
+    public View getRootView() {
+        return this.main_container;
+    }
+
+    @OnClick(R.id.bt_submit_order)
+    public void onBtSubmitOrderClicked(){
+        mPresenter.submitOrder(mainActivityMvpView);
     }
 }

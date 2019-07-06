@@ -7,7 +7,7 @@
     <color name="colorWhite">#fff</color>
     <color name="black_alpha_40">#fff</color>
     <color name="black">#000</color>
-    <color name="main_background_color">#eef3f8</color>
+    <color name="main_background_color">#F5F5F5</color>
     <color name="select_view_dark_color">#3a393b</color>
     <color name="color_accent_dark">#0D47A1</color>
     <color name="color_default_text_view_text">#808080</color>

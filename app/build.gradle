@@ -17,7 +17,8 @@ android {
             buildConfigField("String", "API_KEY", "\"5444c90a1ce34fadadc256cba2908a81\"")
 //            buildConfigField("String", "BASE_URL", "\"http://192.168.43.160:8000/api/client/\"")
 //            buildConfigField("String", "BASE_URL", "\"http://192.168.1.100:8000/api/client/\"")
-            buildConfigField("String", "BASE_URL", "\"http://192.168.43.91:8000/api/client/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.43.92:8000/api/client/v1/\"")
+//            buildConfigField("String", "BASE_URL", "\"http://26e9a7a1.ngrok.io/api/client/v1/\"")
 
         }
         release {
@@ -98,4 +99,7 @@ dependencies {
     //Location
     implementation "com.google.android.gms:play-services-maps:$rootProject.googleMapsVersion"
     implementation "com.google.android.gms:play-services-location:$rootProject.playServiceLocatoinVersion"
+
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+
 }

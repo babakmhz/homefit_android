@@ -45,19 +45,35 @@ public interface MainActivityMvpView extends MvpView {
 
     List<MainRequests.Services> getSelectedServices();
 
-    String getDescription();
-
     String getAddress();
 
     String getLocationInLatLng();
 
     View getSnackbarView();
 
-    List<String> getSelectedServiceIds();
-
     Context getContext();
 
-    void proceedToOrderActivity();
-
     String getSelectedServiceIdFromActivity();
+
+    List<String> getSelectedServiceIds();
+
+    String getDescription();
+
+    void showLoading();
+
+    void hideLoading();
+
+    String getSelectedDate();
+
+    String getSelectedTime();
+
+    String getUserLocation();
+
+    String getSelectedProvider();
+
+    String getOrderTotalCost();
+
+    void onSubmitOrderSuccess();
+
+    void onSubmitOrderFailed();
 }

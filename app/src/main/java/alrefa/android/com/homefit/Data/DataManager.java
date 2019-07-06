@@ -12,6 +12,7 @@ import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.OrderDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
 import alrefa.android.com.homefit.Utils.AppLogger;
@@ -60,5 +61,10 @@ public class DataManager implements DataManagerHelper {
     public Single<List<ProvidersDataModel>> getAvailableProviders(String token, String category_id, List<String> service_ids) {
         Log.i(TAG, "getAvailableProviders: "+service_ids.toString());
         return apiHelper.getAvailableProviders(token,category_id,service_ids);
+    }
+
+    @Override
+    public Single<OrderDataModel.Response> submitOrder(String token, OrderDataModel orderDataModel) {
+        return apiHelper.submitOrder(token,orderDataModel);
     }
 }

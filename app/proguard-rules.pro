@@ -27,5 +27,7 @@
   public *;
 }
 
+-keep class cn.pedant.SweetAlert.** { *; }
+
 # for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule

@@ -16,12 +16,14 @@ public class FixDateTest {
     private String sampleDate;
     private CivilDate civilDate;
     private String sampleTime;
+    private String sample_location;
 
 
     @Before
     public void before() {
         sampleDate = "2019-05-06";
         sampleTime = "00:00:00";
+        sample_location = "21.3968973,51.6568035";
         civilDate = new CivilDate();
         civilDate.setYear(2019);
         civilDate.setMonth(05);
@@ -64,6 +66,18 @@ public class FixDateTest {
     public void fixTimeText() {
         String time = sampleTime.substring(0,sampleTime.lastIndexOf(":"));
         Assert.assertEquals("00:00",time);
+    }
+
+    @Test
+    public void testLatLocationFix(){
+        String lat = sample_location.substring(0,sample_location.indexOf(","));
+        Assert.assertEquals("21.3968973",lat);
+    }
+
+    @Test
+    public void testLngLocation(){
+        String lng = sample_location.substring(sample_location.indexOf(",")+1);
+        Assert.assertEquals("51.6568035",lng);
     }
 
 }

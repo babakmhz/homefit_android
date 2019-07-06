@@ -4,12 +4,13 @@
     android:id="@+id/scroll_bottomSheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eee"
+    android:background="@color/main_background_color"
     android:orientation="vertical"
     tools:context=".Ui.Main.MainActivity">
 
 
     <LinearLayout
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
@@ -17,10 +18,10 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/standard_margin_bottom_on_main_activity"
-            android:gravity="center"
+            android:gravity="center|start"
             android:orientation="horizontal">
 
 
@@ -32,7 +33,7 @@
                 android:src="@drawable/ic_team" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:background="@drawable/selector_standard_title_blue"
@@ -41,7 +42,7 @@
                 android:paddingEnd="5dp"
                 android:text="@string/choose_provider"
                 android:textColor="#fff"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -59,15 +60,15 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="10dp"
-            android:alpha="0.5"
+            android:alpha="0.7"
             android:background="#000" />
 
         <LinearLayout
             android:id="@+id/date_indicator_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/standard_margin_bottom_on_main_activity"
-            android:gravity="center"
+            android:gravity="center|start"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -87,7 +88,7 @@
                 android:padding="5dp"
                 android:text="@string/choose_date"
                 android:textColor="#fff"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -102,10 +103,10 @@
 
         <LinearLayout
             android:id="@+id/time_indicator_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/standard_margin_bottom_on_main_activity"
-            android:gravity="center"
+            android:gravity="center|start"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -125,7 +126,7 @@
                 android:padding="5dp"
                 android:text="@string/choose_time"
                 android:textColor="#fff"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -139,7 +140,7 @@
             tools:orientation="horizontal" />
 
         <Button
-            android:id="@+id/bt_submit"
+            android:id="@+id/bt_submit_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"

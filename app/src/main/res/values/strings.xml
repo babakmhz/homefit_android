@@ -20,4 +20,14 @@
     <string name="order_submitted_successfully">Order submitted Successfully</string>
     <string name="choose_time">Choose Time</string>
     <string name="proceed">Proceed</string>
+    <string name="Please_Choose_Provider_To_Continue">Please Choose Provider To Continue</string>
+    <string name="Please_Choose_Date_To_Continue">Please Choose Date To Continue</string>
+    <string name="Please_Choose_Time_To_Continue">Please Choose Time To Continue</string>
+    <string name="Congratulations">Congratulations!</string>
+    <string name="Your_Service_Registered_Successfully">Your Service Registered Successfully</string>
+    <string name="Done">Done</string>
+    <string name="please_wait">Please Wait...</string>
+    <string name="Please_Wait_While_Processing_your_Request">Please Wait While Processing your Request</string>
+    <string name="Error">Error!</string>
+    <string name="Sorry_Please_Try_Again_Later">Sorry! Please Try Again Later!</string>
 </resources>

@@ -20,20 +20,22 @@ import alrefa.android.com.homefit.DI.Component.ActivityComponent;
 import alrefa.android.com.homefit.DI.Component.DaggerActivityComponent;
 import alrefa.android.com.homefit.DI.Module.ActivityModule;
 import alrefa.android.com.homefit.R;
+import alrefa.android.com.homefit.Utils.CommonUtils;
 import alrefa.android.com.homefit.Utils.MyApplication;
 import alrefa.android.com.homefit.Utils.NetworkUtils;
 import butterknife.Unbinder;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public abstract class BaseActivity extends AppCompatActivity
         implements MvpView, BaseFragment.Callback {
 
-    private ProgressDialog mProgressDialog;
 
     private ActivityComponent mActivityComponent;
 
     private Unbinder mUnBinder;
+    private SweetAlertDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,13 +72,14 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void showLoading() {
         // TODO: 12/28/18 uncomment this after you built loading dialog
-        //mProgressDialog = CommonUtils.showLoadingDialog(this);
+        progressDialog = CommonUtils.showLoadingDialog(this,this.getString(R.string.please_wait),this.getString(R.string.Please_Wait_While_Processing_your_Request));
+        progressDialog.show();
     }
 
     @Override
     public void hideLoading() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.cancel();
+        if (progressDialog!= null && progressDialog.isShowing()) {
+            progressDialog.dismissWithAnimation();
         }
     }
 
@@ -86,6 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity
         View sbView = snackbar.getView();
         TextView textView = (TextView) sbView
                 .findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         textView.setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
         snackbar.show();
     }
@@ -108,7 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void showMessage(View container,String message) {
         if (message != null) {
-            Snackbar.make(container,message,Snackbar.LENGTH_LONG).show();
+            showSnackBar(message);
         } else {
             // TODO: 12/28/18 fix this
             //Toast.makeText(this, getString(R.string.some_error), Toast.LENGTH_SHORT).show();

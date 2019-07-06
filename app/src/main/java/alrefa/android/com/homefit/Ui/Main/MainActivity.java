@@ -2,20 +2,22 @@ package alrefa.android.com.homefit.Ui.Main;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -55,11 +57,13 @@ import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
+import alrefa.android.com.homefit.Utils.CommonUtils;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
@@ -169,6 +173,12 @@ public class MainActivity extends BaseActivity
     private DateTimeDataModel.Date picked_date = null;
     private ProvidersDataModel picked_provider = null;
     private DateTimeDataModel.Time picked_time = null;
+    private List<MainRequests.SliderRequests> sliders;
+
+    @Override
+    public boolean isNetworkConnected() {
+        return super.isNetworkConnected();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -282,6 +292,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onSlidersPrepared(List<MainRequests.SliderRequests> sliders) {
+        this.sliders = sliders;
         AppLogger.i("sliderImage", sliders.get(0).getImage_url());
         Glide.with(this).load(sliders.get(0)
                 .getImage_url()).centerCrop()
@@ -367,9 +378,50 @@ public class MainActivity extends BaseActivity
         super.showMessage(container, message);
     }
 
+    @OnClick(R.id.action_direction_bannerslider)
+    public void onSliderDirectionClicked() {
+        // TODO: 7/6/19 make it real mvp
+        if (sliders.get(0) != null) {
+            String location = sliders.get(0).getLocation();
+            String latlng[] = AppUtils.fixLocatoinFromString(location);
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.com/maps/search/?api=1&query=" + latlng[0] + "," + latlng[1]));
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @OnClick(R.id.action_call_bannerslider)
+    public void onSliderCallClicked() {
+        // TODO: 7/6/19 make it real mvp
+        if (sliders.get(0) != null) {
+            try {
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                dialIntent.setData(Uri.parse("tel:" + sliders.get(0).getPhone()));
+                startActivity(dialIntent);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @OnClick(R.id.action_open_website_bannerslider)
+    public void onSliderWebsiteClick() {
+        if (sliders.get(0) != null) {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(sliders.get(0).getWebURL()));
+            startActivity(i);
+        }
+    }
+
     @Override
     public void showMessage(View container, int resId) {
-
+        Snackbar.make(container, resId, Snackbar.LENGTH_LONG).show();
     }
 
 
@@ -434,6 +486,69 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
+    public String getSelectedDate() {
+        if (picked_date != null)
+            return this.picked_date.getDate();
+        return null;
+    }
+
+    @Override
+    public String getSelectedTime() {
+        if (picked_time != null)
+            return this.picked_time.getTime();
+        return null;
+    }
+
+    @Override
+    public String getUserLocation() {
+        String latlng = String.valueOf(you_marker.getPosition());
+        if ("".equals(editTextAddressInDetail.getText().toString()))
+            return latlng;
+        return editTextAddressInDetail.getText().toString() + " | " + latlng;
+    }
+
+    @Override
+    public String getSelectedProvider() {
+        if (picked_provider != null)
+            return String.valueOf(picked_provider.getId());
+        return null;
+    }
+
+    @Override
+    public String getOrderTotalCost() {
+        return String.valueOf(picked_provider.getTotalCost());
+    }
+
+    @Override
+    public void onSubmitOrderSuccess() {
+        // TODO: 7/4/19
+        SweetAlertDialog sweetAlertDialog = CommonUtils.showSuccessDialog(this, getString(R.string.Congratulations),
+                getString(R.string.Your_Service_Registered_Successfully), false);
+        sweetAlertDialog.setConfirmButton(R.string.Done, new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismissWithAnimation();
+                bottomSheetFragment.dismiss();
+            }
+        });
+        sweetAlertDialog.show();
+    }
+
+    @Override
+    public void onSubmitOrderFailed() {
+        // TODO: 7/4/19
+        SweetAlertDialog sweetAlertDialog = CommonUtils.showErrorDialog(this, getString(R.string.Error)
+                , getString(R.string.Sorry_Please_Try_Again_Later), false);
+        sweetAlertDialog.setConfirmButton(R.string.Done, new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismissWithAnimation();
+            }
+        });
+        sweetAlertDialog.show();
+    }
+
+    @Override
     public String getAddress() {
         return editTextAddressInDetail.getText().toString();
     }
@@ -464,10 +579,6 @@ public class MainActivity extends BaseActivity
         return this;
     }
 
-    @Override
-    public void proceedToOrderActivity() {
-
-    }
 
     @Override
     public String getSelectedServiceIdFromActivity() {
@@ -592,7 +703,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onDateRelease() {
-        picked_date = null;
+        this.picked_date = null;
     }
 
     @Override
@@ -609,6 +720,8 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onTimeRelease() {
-        picked_date = null;
+        this.picked_time = null;
     }
+
+
 }

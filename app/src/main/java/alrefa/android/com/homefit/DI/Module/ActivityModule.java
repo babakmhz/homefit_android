@@ -51,7 +51,6 @@ public class ActivityModule {
 
     public ActivityModule(AppCompatActivity activity) {
         this.activity = activity;
-        this.activity = activity;
     }
 
     @Provides
@@ -98,6 +97,8 @@ public class ActivityModule {
     IntroSliderViewPagerAdapter ProvideSliderViewPagerAdapter() {
         return new IntroSliderViewPagerAdapter(activity.getSupportFragmentManager());
     }
+
+
 
 
     @Provides
