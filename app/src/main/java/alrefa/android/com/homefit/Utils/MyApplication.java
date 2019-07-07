@@ -6,6 +6,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor;
 import com.google.android.gms.maps.model.LatLng;
 
+import org.greenrobot.greendao.AbstractDaoSession;
+import org.greenrobot.greendao.database.Database;
+
 import javax.inject.Inject;
 
 import alrefa.android.com.homefit.BuildConfig;
@@ -22,7 +25,6 @@ public class MyApplication extends Application {
 
     @Inject
     DataManagerHelper mDataManager;
-
 //    @Inject
 //    CalligraphyConfig mCalligraphyConfig;
 

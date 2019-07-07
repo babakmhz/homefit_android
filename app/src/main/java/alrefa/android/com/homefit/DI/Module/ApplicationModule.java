@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import org.greenrobot.greendao.AbstractDaoMaster;
+import org.greenrobot.greendao.AbstractDaoSession;
+
 import javax.inject.Singleton;
 
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
@@ -13,6 +16,7 @@ import alrefa.android.com.homefit.DI.Qualifier.Bold_en;
 import alrefa.android.com.homefit.DI.Qualifier.oman_latlng;
 import alrefa.android.com.homefit.Data.DB.AppDatabase;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
+import alrefa.android.com.homefit.Data.DB.DbOpenHelper;
 import alrefa.android.com.homefit.Data.DataManager;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
@@ -36,6 +40,7 @@ public class ApplicationModule {
     public ApplicationModule(Application myApp) {
 
         this.myApp = myApp;
+
     }
 
     @Provides
@@ -79,6 +84,7 @@ public class ApplicationModule {
             ApiHelper apiHelper) {
         return new DataManager(context, databaseHelper,
                 prefsHelper, apiHelper);
+
     }
 
 
@@ -100,13 +106,24 @@ public class ApplicationModule {
     @Singleton
     public ApiHeader ProvideApiHeader(ApiHeader.PublicApiHeader apiHeader) {
         return new ApiHeader(apiHeader);
+
+
     }
+
+
+//    @Provides
+//    @Singleton
+//    public DaoSession ProvideWritableDaoSession(@ApplicationContext Context context,
+//                                                DbOpenHelper openHelper){
+//        return new DaoMaster(openHelper.getWritableDb()).newSession();
+//    }
 
     @Provides
     @Singleton
     public AppApiService ProvideAppAPiService(ApiHeader apiHeader) {
         return new AppApiService();
     }
+
 
 
     @Provides

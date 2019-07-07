@@ -3,29 +3,38 @@ package alrefa.android.com.homefit.Data.Network.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Property;
+
 import java.util.List;
 
 public class MainRequests {
 
 
+    @Entity(nameInDb = "sliders")
     public class SliderRequests {
 
+        @Property
         @Expose
         @SerializedName("id")
         private int id;
 
+        @Property
         @Expose
         @SerializedName("phone")
         private String phone;
 
+        @Property
         @Expose
         @SerializedName("location")
         private String location;
 
+        @Property
         @Expose
         @SerializedName("image")
         private String image_url;
 
+        @Property
         @Expose
         @SerializedName("webURL")
         private String webURL;
