@@ -8,6 +8,7 @@ import java.util.List;
 
 import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Ui.Base.MvpView;
+import alrefa.android.com.homefit.Utils.PermissionManager;
 
 public interface MainActivityMvpView extends MvpView {
 
@@ -34,6 +35,11 @@ public interface MainActivityMvpView extends MvpView {
     void hideLoadingOnMap();
 
     void onLocationUpdatePrepared(Location location);
+
+    void onProviderEnabled(String s);
+
+    void onProviderDisabled(String s);
+
 
     void onLocationUpdateFailed();
 
@@ -62,6 +68,8 @@ public interface MainActivityMvpView extends MvpView {
     void showLoading();
 
     void hideLoading();
+
+    PermissionManager getPermissionManager();
 
     String getSelectedDate();
 

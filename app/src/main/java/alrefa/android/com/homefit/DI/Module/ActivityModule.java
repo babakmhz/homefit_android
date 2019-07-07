@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Singleton;
+
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
@@ -37,6 +39,7 @@ import alrefa.android.com.homefit.Ui.Main.ProvidersRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.ServiceCategoryRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.SubServiceCategoryRecyclerAdapter;
 import alrefa.android.com.homefit.Ui.Main.TimePickerRecyclerAdapter;
+import alrefa.android.com.homefit.Utils.PermissionManager;
 import alrefa.android.com.homefit.Utils.rx.AppSchedulerProvider;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import dagger.Module;
@@ -97,8 +100,6 @@ public class ActivityModule {
     IntroSliderViewPagerAdapter ProvideSliderViewPagerAdapter() {
         return new IntroSliderViewPagerAdapter(activity.getSupportFragmentManager());
     }
-
-
 
 
     @Provides
@@ -228,4 +229,11 @@ public class ActivityModule {
         return new ArrayList<>();
     }
 
+
+    @Provides
+    @PerActivity
+    public PermissionManager ProvidesPermissionMananer() {
+
+        return PermissionManager.initilize(activity);
+    }
 }

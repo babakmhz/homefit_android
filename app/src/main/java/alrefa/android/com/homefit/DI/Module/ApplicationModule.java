@@ -21,6 +21,7 @@ import alrefa.android.com.homefit.Data.Network.Model.ApiHeader;
 import alrefa.android.com.homefit.Data.Prefs.AppPreferences;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
 import alrefa.android.com.homefit.Utils.MyApplication;
+import alrefa.android.com.homefit.Utils.PermissionManager;
 import dagger.Module;
 import dagger.Provides;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -112,4 +113,5 @@ public class ApplicationModule {
     public LatLng ProvidesOmanLatLng(){
         return new LatLng(23.614328,58.545284);
     }
+
 }

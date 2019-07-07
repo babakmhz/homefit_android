@@ -17,6 +17,8 @@ public interface BottomSheetMvpView extends MvpView {
     void onAvailableTimesFetched(List<DateTimeDataModel.Time> models);
     void onProvidersPrepared(List<ProvidersDataModel> ProvidersDataModels);
     View getRootView();
+    void showDateTimeProgress();
+    void hideDateTimeProgress();
 
 
 }

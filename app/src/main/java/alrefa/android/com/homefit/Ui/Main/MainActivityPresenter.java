@@ -1,11 +1,13 @@
 package alrefa.android.com.homefit.Ui.Main;
 
+import android.Manifest;
 import android.content.Context;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -21,6 +23,8 @@ import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BasePresenter;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
+import alrefa.android.com.homefit.Utils.OnCheckPermissionListenerListener;
+import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -81,6 +85,12 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     }
 
     @Override
+    public void checkPermissions() {
+
+        // TODO: 7/6/19  
+    }
+
+    @Override
     public void switchSelectedCategoryItems(int selected_position,
                                             int last_selected_position,
                                             MainRequests.CategoriesRequests last_selected_categories,
@@ -126,7 +136,9 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     }
 
     @Override
-    public void requestLocationUpdates(Context context) {
+    public void requestLocationUpdates(final Context context,LocationListener listener) {
+
+
         getMvpView().showLoadingOnMap();
         AppUtils.updateLocation(new LocationListener() {
             @Override
@@ -143,26 +155,19 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
             @Override
             public void onProviderEnabled(String s) {
                 // TODO: 3/8/19 handle this
+                getMvpView().onProviderEnabled(s);
             }
 
             @Override
             public void onProviderDisabled(String s) {
                 // TODO: 3/8/19 handle this
+                getMvpView().onProviderDisabled(s);
+
             }
         }, context);
     }
 
-    @Override
-    public void getUpdatedLocation() {
-        // TODO: 3/8/19 show loading
-        getMvpView().showLoadingOnMap();
-        if (getMvpView().getCurrentLocation() != null) {
-            getMvpView().onLocationUpdatePrepared(getMvpView().getCurrentLocation());
-        } else {
-            getMvpView().onRequestLocationNotPrepared();
-        }
-        getMvpView().hideLoadingOnMap();
-    }
+
 
     @Override
     public void getLastKnownLocation(Context context) {

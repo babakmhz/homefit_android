@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -38,6 +39,11 @@ public class BottomSheetFragment
     @BindView(R.id.main_container)
     LinearLayout main_container;
 
+    @BindView(R.id.progress_dateTime)
+    ProgressBar progress_datetime;
+
+    @BindView(R.id.progress_providers)
+    ProgressBar progress_providers;
 
     @BindView(R.id.date_indicator_container)
     LinearLayout dateIndicatorContainer;
@@ -53,7 +59,6 @@ public class BottomSheetFragment
 
     @BindView(R.id.recycler_time)
     RecyclerView recyclerTime;
-
 
 
     @Inject
@@ -91,6 +96,7 @@ public class BottomSheetFragment
             mPresenter.onAttach(this);
         }
 
+        progress_providers.setVisibility(View.VISIBLE);
         return view;
     }
 
@@ -130,6 +136,7 @@ public class BottomSheetFragment
 
     @Override
     public void onAvailableDatesFetched(List<DateTimeDataModel.Date> models) {
+        progress_datetime.setVisibility(View.GONE);
         if (recyclerDate.getVisibility() == View.GONE)
             recyclerDate.setVisibility(View.VISIBLE);
 
@@ -147,6 +154,7 @@ public class BottomSheetFragment
 
     @Override
     public void onAvailableTimesFetched(List<DateTimeDataModel.Time> models) {
+        progress_datetime.setVisibility(View.GONE);
         if (recyclerTime.getVisibility() == View.GONE)
             recyclerTime.setVisibility(View.VISIBLE);
 
@@ -156,7 +164,7 @@ public class BottomSheetFragment
         timePickerRecyclerAdapter.setData(models);
         recyclerTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerTime.setAdapter(timePickerRecyclerAdapter);
-        scrollView.scrollTo(0,100);
+        scrollView.scrollTo(0, 100);
     }
 
     public RecyclerView getProviderRecycler() {
@@ -174,6 +182,7 @@ public class BottomSheetFragment
 
     @Override
     public void onProvidersPrepared(List<ProvidersDataModel> ProvidersDataModels) {
+        progress_providers.setVisibility(View.GONE);
         providersRecyclerAdapter.setData(ProvidersDataModels);
         recyclerProviders.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerProviders.setAdapter(providersRecyclerAdapter);
@@ -184,8 +193,22 @@ public class BottomSheetFragment
         return this.main_container;
     }
 
+    @Override
+    public void showDateTimeProgress() {
+        dateIndicatorContainer.setVisibility(View.GONE);
+        timeIndicatorContainer.setVisibility(View.GONE);
+        recyclerDate.setVisibility(View.GONE);
+        recyclerTime.setVisibility(View.GONE);
+        progress_datetime.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideDateTimeProgress() {
+        progress_datetime.setVisibility(View.GONE);
+    }
+
     @OnClick(R.id.bt_submit_order)
-    public void onBtSubmitOrderClicked(){
+    public void onBtSubmitOrderClicked() {
         mPresenter.submitOrder(mainActivityMvpView);
     }
 }

@@ -34,6 +34,7 @@ public class BottomSheetPresenter<V extends BottomSheetMvpView> extends BasePres
     public void getDateTime(String service_id) {
         // TODO: 5/6/19 change token
 //        getMvpView().showLoading();
+        getMvpView().showDateTimeProgress();
         getCompositeDisposable().add(getDataManager()
                 .getDateServiceDateTime(BuildConfig.API_KEY
                         , service_id)
@@ -60,6 +61,7 @@ public class BottomSheetPresenter<V extends BottomSheetMvpView> extends BasePres
 
                         getMvpView().onAvailableDatesFetched(dates);
                         getMvpView().onAvailableTimesFetched(times);
+                        getMvpView().hideDateTimeProgress();
                     }
                 }, new Consumer<Throwable>() {
                     @Override

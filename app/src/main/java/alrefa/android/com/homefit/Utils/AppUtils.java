@@ -68,7 +68,7 @@ public final class AppUtils {
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         assert locationManager != null;
         locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER, 5000, 10, listener);
+                LocationManager.GPS_PROVIDER, 150000, 0, listener);
     }
 
 

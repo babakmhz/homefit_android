@@ -7,12 +7,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
@@ -33,7 +33,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -59,6 +58,8 @@ import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
 import alrefa.android.com.homefit.Utils.CommonUtils;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
+import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
+import alrefa.android.com.homefit.Utils.PermissionManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -72,13 +73,19 @@ public class MainActivity extends BaseActivity
         LocationSource.OnLocationChangedListener,
         ProvidersRecyclerAdapter.CallBack,
         DatePickerRecyclerAdapter.CallBack,
-        TimePickerRecyclerAdapter.CallBack {
+        TimePickerRecyclerAdapter.CallBack,
+        LocationListener {
+
+
 
     @Inject
     ServiceCategoryRecyclerAdapter serviceCategoryRecyclerAdapter;
 
     @BindView(R.id.text_category_indicator)
     TextView textCategoryIndicator;
+
+    @BindView(R.id.text_enable_loactoin)
+    TextView text_enable_location;
 
     @BindView(R.id.recycler_sub_categories)
     RecyclerView recyclerSubCategories;
@@ -127,6 +134,10 @@ public class MainActivity extends BaseActivity
     @Inject
     BottomSheetMvpPresenter<BottomSheetMvpView> bottomSheetMvpPresenter;
 
+
+    @Inject
+    PermissionManager permissionManager;
+
     @BindView(R.id.editText_address_inDetail)
     EditText editTextAddressInDetail;
 
@@ -167,13 +178,13 @@ public class MainActivity extends BaseActivity
     private Animation map_editText_visibilty_anim;
 
     private Location current_location;
-    private GoogleApiClient googleApiClient;
-    private BottomSheetBehavior bottomSheetBehavior;
+
     private String serviceId;
     private DateTimeDataModel.Date picked_date = null;
     private ProvidersDataModel picked_provider = null;
     private DateTimeDataModel.Time picked_time = null;
     private List<MainRequests.SliderRequests> sliders;
+
 
     @Override
     public boolean isNetworkConnected() {
@@ -192,9 +203,12 @@ public class MainActivity extends BaseActivity
 
         mPresenter.onAttach(this);
 
+        mPresenter.requestLocationUpdates(this, this);
+
         setUp();
 
     }
+
 
     @Override
     public void showLoading() {
@@ -202,24 +216,24 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
+    public PermissionManager getPermissionManager() {
+        return permissionManager;
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == AppConstants.LOCATION_PERMISSION_REQUEST_CODE && grantResults[0] == 0)
-            mPresenter.getLastKnownLocation(getApplicationContext());
+        permissionManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
+    //-------------------------------------------------------------------
 
 
     @Override
     protected void setUp() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-/*
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-*/
         initializeBoldFonts();
         // TODO: 5/5/19 get last known location runtime permission
 //        mPresenter.getLastKnownLocation(getApplicationContext());
@@ -242,6 +256,25 @@ public class MainActivity extends BaseActivity
         });
 
         bottomSheetMvpPresenter.onAttach(bottomSheetFragment);
+
+        permissionManager.requestPermission(Manifest.permission.ACCESS_FINE_LOCATION,
+                new OnRequestPermissionResultListener() {
+                    @Override
+                    public void onDontAskAgain() {
+
+                    }
+
+                    @Override
+                    public void onGranted() {
+
+                    }
+
+                    @Override
+                    public void onDenied() {
+
+                    }
+                });
+
 
     }
 
@@ -449,9 +482,10 @@ public class MainActivity extends BaseActivity
     public void onLocationUpdatePrepared(Location location) {
         this.current_location = location;
         if (location != null) {
-            onMapClick(new LatLng(location.getLongitude(), location.getLatitude()));
+            onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
         }
     }
+
 
     @Override
     public void onLocationUpdateFailed() {
@@ -472,7 +506,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onRequestLocationNotPrepared() {
-        mPresenter.requestLocationUpdates(this);
+        mPresenter.requestLocationUpdates(this, this);
     }
 
     @Override
@@ -641,7 +675,7 @@ public class MainActivity extends BaseActivity
     public void onMapClick(final LatLng latLng) {
         if (you_marker != null) {
             you_marker.setPosition(latLng);
-            cameraUpdate = CameraUpdateFactory.newLatLng(latLng);
+            cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, AppConstants.GOOGLE_MAPS_CAMERA_ZOOM);
             googleMap.animateCamera(cameraUpdate);
             mPresenter.getAddress(latLng, geocoder);
         }
@@ -650,14 +684,36 @@ public class MainActivity extends BaseActivity
 
     @OnClick(R.id.fab_find_me)
     public void onFabClick() {
-        mPresenter.requestLocationUpdates(getApplicationContext());
+        mPresenter.requestLocationUpdates(getApplicationContext(), this);
     }
 
 
     @Override
     public void onLocationChanged(Location location) {
-        if (location != null)
-            onMapClick(new LatLng(location.getLongitude(), location.getLatitude()));
+        if (location != null) {
+            hideLoadingOnMap();
+            onMapClick(new LatLng(location.getLatitude(), location.getLongitude()));
+        }
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        if (text_enable_location.getVisibility()==View.VISIBLE)
+            text_enable_location.setVisibility(View.GONE);
+        mPresenter.requestLocationUpdates(this, this);
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        // TODO: 7/6/19
+        text_enable_location.setVisibility(View.VISIBLE);
+        hideLoadingOnMap();
+
     }
 
 
@@ -722,6 +778,5 @@ public class MainActivity extends BaseActivity
     public void onTimeRelease() {
         this.picked_time = null;
     }
-
 
 }

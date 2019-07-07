@@ -94,20 +94,35 @@
                 android:visibility="invisible"
                 tools:text="address" />-->
 
-            <ProgressBar
-                android:id="@+id/progress_map"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:visibility="gone" />
+
+
+                <ProgressBar
+                    android:id="@+id/progress_map"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:textAlignment="center"
+                    android:background="#ddd"
+                    android:id="@+id/text_enable_loactoin"
+                    android:visibility="gone"
+                    android:textColor="#FF3636"
+                    android:text="@string/please_enable_your_location_service"
+                    />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0.2"
+                android:alpha="0.3"
                 android:background="@drawable/map_card_gradient" />
 
             <android.support.design.widget.FloatingActionButton
@@ -132,7 +147,6 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/selector_edit_text_description"
         android:elevation="@dimen/standard_elevation"
-
         android:gravity="top"
         android:layout_marginBottom="5dp"
         android:hint="@string/enter_address_in_detail"
