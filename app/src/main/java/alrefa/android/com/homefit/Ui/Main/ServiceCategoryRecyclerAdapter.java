@@ -16,7 +16,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseViewHolder;
 import butterknife.BindView;
@@ -28,14 +28,14 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
 
 
     private final Context context;
-    private final List<MainRequests.CategoriesRequests> categoryDataModels;
+    private final List<Category> categoryDataModels;
     private CallBack mCallback;
     private int last_selected_position = -1;
-    private MainRequests.CategoriesRequests last_selected_category = null;
+    private Category last_selected_category = null;
 
     @Inject
     public ServiceCategoryRecyclerAdapter(@ActivityContext Context context
-            , List<MainRequests.CategoriesRequests> categoryDataModels, CallBack mCallback) {
+            , List<Category> categoryDataModels, CallBack mCallback) {
         this.context = context;
         this.categoryDataModels = categoryDataModels;
         this.mCallback = mCallback;
@@ -62,7 +62,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
     }
 
 
-    public void addItems(List<MainRequests.CategoriesRequests> data) {
+    public void addItems(List<Category> data) {
         if (categoryDataModels.size()>0)
             categoryDataModels.clear();
         categoryDataModels.addAll(data);
@@ -73,8 +73,8 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
     public interface CallBack {
         void onCategoryItemClicked(int selected_position,
                                    int last_selected_position,
-                                   MainRequests.CategoriesRequests last_selected_categories,
-                                   MainRequests.CategoriesRequests categories,
+                                   Category last_selected_category,
+                                   Category category,
                                    Context context);
 
         void setSelectedServiceId(String id);
@@ -90,7 +90,7 @@ public class ServiceCategoryRecyclerAdapter extends RecyclerView.Adapter<Service
 
         @BindView(R.id.text_category)
         TextView text_catName;
-        private MainRequests.CategoriesRequests each_item;
+        private Category each_item;
         private int position;
 
 

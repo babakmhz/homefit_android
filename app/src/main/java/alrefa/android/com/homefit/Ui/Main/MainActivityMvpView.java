@@ -6,23 +6,25 @@ import android.view.View;
 
 import java.util.List;
 
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.Category;
+import alrefa.android.com.homefit.Data.Network.Model.Service;
+import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.Ui.Base.MvpView;
 import alrefa.android.com.homefit.Utils.PermissionManager;
 
 public interface MainActivityMvpView extends MvpView {
 
-    void onSlidersPrepared(List<MainRequests.SliderRequests> sliders);
+    void onSlidersPrepared(List<Slider> sliders);
 
-    void onAvailableServiceCategoriesPrepared(List<MainRequests.CategoriesRequests> services);
+    void onAvailableServiceCategoriesPrepared(List<Category> services);
 
     void onCategoryItemClickSwitch(int selected_position,
                                    int last_selected_position,
-                                   MainRequests.CategoriesRequests last_selected_categories,
-                                   MainRequests.CategoriesRequests categories,
+                                   Category last_selected_category,
+                                   Category category,
                                    Context context);
 
-    void onAvailableServicesPrepared(List<MainRequests.Services> services);
+    void onAvailableServicesPrepared(List<Service> services);
 
     void onNoSubCategoryNeeded();
 
@@ -49,7 +51,7 @@ public interface MainActivityMvpView extends MvpView {
 
     void onRequestLocationNotPrepared();
 
-    List<MainRequests.Services> getSelectedServices();
+    List<Service> getSelectedServices();
 
     String getAddress();
 

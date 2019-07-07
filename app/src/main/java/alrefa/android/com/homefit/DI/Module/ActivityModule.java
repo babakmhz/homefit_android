@@ -13,13 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.inject.Singleton;
-
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
 import alrefa.android.com.homefit.DI.Scope.PerActivity;
+import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.Service;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
 import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
@@ -115,7 +114,7 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    public List<MainRequests.CategoriesRequests> ProvideServiceCategoryList() {
+    public List<Category> ProvideServiceCategoryList() {
         return new ArrayList<>();
     }
 
@@ -127,7 +126,7 @@ public class ActivityModule {
 //    }
     @Provides
     @PerActivity
-    public List<MainRequests.Services> ProvideSubServiceCategoryList() {
+    public List<Service> ProvideSubServiceCategoryList() {
         return new ArrayList<>();
     }
 
@@ -154,7 +153,7 @@ public class ActivityModule {
     @Provides
     @PerActivity
     public ServiceCategoryRecyclerAdapter ProvideServiceCategoryRecyclerAdapter
-            (@ActivityContext Context context, List<MainRequests.CategoriesRequests> data
+            (@ActivityContext Context context, List<Category> data
                     , ServiceCategoryRecyclerAdapter.CallBack callBack) {
         return new ServiceCategoryRecyclerAdapter(context, data, callBack);
     }
@@ -182,7 +181,7 @@ public class ActivityModule {
     @Provides
     @PerActivity
     public SubServiceCategoryRecyclerAdapter ProvideSubServiceCategoryRecyclerAdapter
-            (@ActivityContext Context context, List<MainRequests.Services> data
+            (@ActivityContext Context context, List<Service> data
                     , SubServiceCategoryRecyclerAdapter.CallBack callBack) {
         return new SubServiceCategoryRecyclerAdapter(context, data, callBack);
     }

@@ -4,10 +4,11 @@ import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.util.List;
 
+import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Data.Network.Model.OrderDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.Utils.ApiEndpoints;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import io.reactivex.Single;
@@ -18,19 +19,19 @@ public class AppApiService implements ApiHelper {
 
 
     @Override
-    public Single<List<MainRequests.SliderRequests>> getBannerSliders(String token) {
+    public Single<List<Slider>> getBannerSliders(String token) {
 
         return Rx2AndroidNetworking.get(ApiEndpoints.SLIDER_ENDPOINT)
                 .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token).
                         build().
-                        getObjectListSingle(MainRequests.SliderRequests.class);
+                        getObjectListSingle(Slider.class);
     }
 
     @Override
-    public Single<List<MainRequests.CategoriesRequests>> getAvailableServices(String token) {
+    public Single<List<Category>> getAvailableServices(String token) {
         return Rx2AndroidNetworking.get(ApiEndpoints.CATEGORIES_ENDPOINT)
                 .addHeaders(ApiEndpoints.HEADER_AUTH_KEY, token)
-                .build().getObjectListSingle(MainRequests.CategoriesRequests.class);
+                .build().getObjectListSingle(Category.class);
     }
 
     @Override

@@ -48,9 +48,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.Service;
+import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseActivity;
 import alrefa.android.com.homefit.Utils.AppConstants;
@@ -75,7 +77,6 @@ public class MainActivity extends BaseActivity
         DatePickerRecyclerAdapter.CallBack,
         TimePickerRecyclerAdapter.CallBack,
         LocationListener {
-
 
 
     @Inject
@@ -183,7 +184,7 @@ public class MainActivity extends BaseActivity
     private DateTimeDataModel.Date picked_date = null;
     private ProvidersDataModel picked_provider = null;
     private DateTimeDataModel.Time picked_time = null;
-    private List<MainRequests.SliderRequests> sliders;
+    private List<Slider> sliders;
 
 
     @Override
@@ -324,7 +325,7 @@ public class MainActivity extends BaseActivity
 
 
     @Override
-    public void onSlidersPrepared(List<MainRequests.SliderRequests> sliders) {
+    public void onSlidersPrepared(List<Slider> sliders) {
         this.sliders = sliders;
         AppLogger.i("sliderImage", sliders.get(0).getImage_url());
         Glide.with(this).load(sliders.get(0)
@@ -333,7 +334,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void onAvailableServiceCategoriesPrepared(List<MainRequests.CategoriesRequests> services) {
+    public void onAvailableServiceCategoriesPrepared(List<Category> services) {
         AppLogger.i("onMainActivity", services);
         recyclerCategories.setAnimation(AnimationUtils.loadAnimation(this, R.anim.sub_category_visibility_anim));
         serviceCategoryRecyclerAdapter.addItems(services);
@@ -345,21 +346,21 @@ public class MainActivity extends BaseActivity
     @Override
     public void onCategoryItemClickSwitch(int selected_position,
                                           int last_selected_position,
-                                          MainRequests.CategoriesRequests last_selected_categories,
-                                          MainRequests.CategoriesRequests categories,
+                                          Category last_selected_category,
+                                          Category category,
                                           Context context) {
 
         if (last_selected_position != -1)
-            Glide.with(context).load(last_selected_categories.getImage_url())
+            Glide.with(context).load(last_selected_category.getImage_url())
                     .into((ImageView) recyclerCategories.getChildAt(last_selected_position)
                             .findViewById(R.id.image_category));
 
-        if (last_selected_categories != null)
+        if (last_selected_category != null)
             recyclerCategories.getChildAt(last_selected_position)
                     .findViewById(R.id.selected_image).setVisibility(View.GONE);
 
 
-        Glide.with(context).load(categories.getImage_url())
+        Glide.with(context).load(category.getImage_url())
                 .into((ImageView) recyclerCategories.getChildAt(selected_position)
                         .findViewById(R.id.image_category));
 
@@ -369,7 +370,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void onAvailableServicesPrepared(List<MainRequests.Services> services) {
+    public void onAvailableServicesPrepared(List<Service> services) {
         subServiceCategoryRecyclerAdapter.clear();
         if (subCategoryIndicatorContainer.getVisibility() == View.GONE) {
 
@@ -510,7 +511,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public List<MainRequests.Services> getSelectedServices() {
+    public List<Service> getSelectedServices() {
         return subServiceCategoryRecyclerAdapter.getServices();
     }
 
@@ -600,7 +601,7 @@ public class MainActivity extends BaseActivity
     @Override
     public List<String> getSelectedServiceIds() {
         List<String> serviceIds = new ArrayList<>();
-        for (MainRequests.Services service :
+        for (Service service :
                 getSelectedServices()) {
             serviceIds.add(String.valueOf(service.getId()));
         }
@@ -624,12 +625,12 @@ public class MainActivity extends BaseActivity
     @Override
     public void onCategoryItemClicked(int selected_position,
                                       int last_selected_position,
-                                      MainRequests.CategoriesRequests last_selected_categories,
-                                      MainRequests.CategoriesRequests categories,
+                                      Category last_selected_category,
+                                      Category category,
                                       Context context) {
 
         mPresenter.switchSelectedCategoryItems(selected_position, last_selected_position,
-                last_selected_categories, categories, context);
+                last_selected_category, category, context);
 
 
     }
@@ -703,7 +704,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onProviderEnabled(String provider) {
-        if (text_enable_location.getVisibility()==View.VISIBLE)
+        if (text_enable_location.getVisibility() == View.VISIBLE)
             text_enable_location.setVisibility(View.GONE);
         mPresenter.requestLocationUpdates(this, this);
     }

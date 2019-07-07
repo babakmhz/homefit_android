@@ -2,18 +2,12 @@ package alrefa.android.com.homefit.DI.Module;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.Typeface;
 
 import com.google.android.gms.maps.model.LatLng;
-
-import org.greenrobot.greendao.AbstractDaoMaster;
-import org.greenrobot.greendao.AbstractDaoSession;
 
 import javax.inject.Singleton;
 
 import alrefa.android.com.homefit.DI.Qualifier.ApplicationContext;
-import alrefa.android.com.homefit.DI.Qualifier.Bold_en;
-import alrefa.android.com.homefit.DI.Qualifier.oman_latlng;
 import alrefa.android.com.homefit.Data.DB.AppDatabase;
 import alrefa.android.com.homefit.Data.DB.DatabaseHelper;
 import alrefa.android.com.homefit.Data.DB.DbOpenHelper;
@@ -22,10 +16,12 @@ import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.ApiHelper;
 import alrefa.android.com.homefit.Data.Network.AppApiService;
 import alrefa.android.com.homefit.Data.Network.Model.ApiHeader;
+import alrefa.android.com.homefit.Data.Network.Model.DaoMaster;
+import alrefa.android.com.homefit.Data.Network.Model.DaoSession;
 import alrefa.android.com.homefit.Data.Prefs.AppPreferences;
 import alrefa.android.com.homefit.Data.Prefs.PrefsHelper;
-import alrefa.android.com.homefit.Utils.MyApplication;
-import alrefa.android.com.homefit.Utils.PermissionManager;
+import alrefa.android.com.homefit.Utils.rx.AppSchedulerProvider;
+import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import dagger.Module;
 import dagger.Provides;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -69,11 +65,6 @@ public class ApplicationModule {
         return new AppApiService();
     }
 
-    @Provides
-    @Singleton
-    public DatabaseHelper ProvideDatabaseHelper() {
-        return new AppDatabase();
-    }
 
     @Provides
     @Singleton
@@ -111,12 +102,32 @@ public class ApplicationModule {
     }
 
 
-//    @Provides
-//    @Singleton
-//    public DaoSession ProvideWritableDaoSession(@ApplicationContext Context context,
-//                                                DbOpenHelper openHelper){
-//        return new DaoMaster(openHelper.getWritableDb()).newSession();
-//    }
+    @Provides
+    @Singleton
+    public DaoSession ProvideWritableDaoSession(@ApplicationContext Context context,
+                                                DbOpenHelper openHelper) {
+        return new DaoMaster(openHelper.getWritableDb()).newSession();
+    }
+
+    @Provides
+    @Singleton
+    public DbOpenHelper ProvideDbOpenHelper(@ApplicationContext Context context) {
+        return new DbOpenHelper(context);
+    }
+
+
+    @Provides
+    @Singleton
+    public SchedulerProvider ProvideSchedulerProvider() {
+        return new AppSchedulerProvider();
+    }
+
+    @Provides
+    @Singleton
+    public DatabaseHelper ProvideDbHelper(DbOpenHelper helper, SchedulerProvider provider) {
+        return new AppDatabase(helper, provider);
+    }
+
 
     @Provides
     @Singleton
@@ -125,10 +136,9 @@ public class ApplicationModule {
     }
 
 
-
     @Provides
-    public LatLng ProvidesOmanLatLng(){
-        return new LatLng(23.614328,58.545284);
+    public LatLng ProvidesOmanLatLng() {
+        return new LatLng(23.614328, 58.545284);
     }
 
 }

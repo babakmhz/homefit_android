@@ -6,7 +6,7 @@ import android.location.LocationListener;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.Category;
 
 public interface MainActivityMvpPresenter {
 
@@ -15,18 +15,12 @@ public interface MainActivityMvpPresenter {
     void prepareAvailableServices();
 
     void checkPermissions();
-/*
-
-    void switchSelectedCategoryItems(int selected_position,
-                                     int last_selected_position,
-                                     List<MainRequests.Services> services);
-*/
 
 
     void switchSelectedCategoryItems(int selected_position,
                                      int last_selected_position,
-                                     MainRequests.CategoriesRequests last_selected_categories,
-                                     MainRequests.CategoriesRequests categories,
+                                     Category last_selected_category,
+                                     Category category,
                                      Context context);
 
     void getAddress(LatLng latLng, Geocoder geocoder);

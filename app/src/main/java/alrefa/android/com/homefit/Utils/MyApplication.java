@@ -4,10 +4,6 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor;
-import com.google.android.gms.maps.model.LatLng;
-
-import org.greenrobot.greendao.AbstractDaoSession;
-import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Inject;
 
@@ -15,12 +11,20 @@ import alrefa.android.com.homefit.BuildConfig;
 import alrefa.android.com.homefit.DI.Component.ApplicationComponent;
 import alrefa.android.com.homefit.DI.Component.DaggerApplicationComponent;
 import alrefa.android.com.homefit.DI.Module.ApplicationModule;
-import alrefa.android.com.homefit.DI.Qualifier.oman_latlng;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import alrefa.android.com.homefit.Data.Network.Model.DaoMaster;
+import alrefa.android.com.homefit.Data.Network.Model.DaoSession;
+import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 
 
 public class MyApplication extends Application {
+
+
+    @Inject
+    SchedulerProvider schedulerProvider;
+
+    @Inject
+    DaoSession daoSession;
 
 
     @Inject

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alrefa.android.com.homefit.DI.Qualifier.ActivityContext;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
+import alrefa.android.com.homefit.Data.Network.Model.Service;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseViewHolder;
 import butterknife.BindView;
@@ -27,15 +27,15 @@ public class SubServiceCategoryRecyclerAdapter
 
 
     private final Context context;
-    private final List<MainRequests.Services> servicesDataModels;
+    private final List<Service> servicesDataModels;
     private CallBack mCallback;
     private int last_selected_position = -1;
-    private MainRequests.Services last_selected_category = null;
-    private List<MainRequests.Services> selected_services
+    private Service last_selected_category = null;
+    private List<Service> selected_services
             = new ArrayList<>();
 
     public SubServiceCategoryRecyclerAdapter(@ActivityContext Context context
-            , List<MainRequests.Services> servicesDataModels, CallBack mCallback) {
+            , List<Service> servicesDataModels, CallBack mCallback) {
         this.context = context;
         this.servicesDataModels = servicesDataModels;
         this.mCallback = mCallback;
@@ -62,7 +62,7 @@ public class SubServiceCategoryRecyclerAdapter
     }
 
 
-    public void addItems(List<MainRequests.Services> data) {
+    public void addItems(List<Service> data) {
         if (servicesDataModels.size()>0){
             selected_services.clear();
             servicesDataModels.clear();
@@ -77,7 +77,7 @@ public class SubServiceCategoryRecyclerAdapter
         notifyDataSetChanged();
     }
 
-    public List<MainRequests.Services> getServices(){
+    public List<Service> getServices(){
         return this.selected_services;
     }
 
@@ -101,7 +101,7 @@ public class SubServiceCategoryRecyclerAdapter
         View view_darkIndicator;
         @BindView(R.id.selected_mark)
         ImageView selected_mark;
-        private MainRequests.Services each_item;
+        private Service each_item;
         private int position;
 
 

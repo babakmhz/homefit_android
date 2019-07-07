@@ -9,7 +9,8 @@ import alrefa.android.com.homefit.Ui.Splash.SplashScreenActivity;
 import dagger.Component;
 
 @PerActivity
-@Component(modules = {ActivityModule.class}, dependencies = {ApplicationComponent.class})
+@Component(modules = {ActivityModule.class},
+        dependencies = {ApplicationComponent.class})
 public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);

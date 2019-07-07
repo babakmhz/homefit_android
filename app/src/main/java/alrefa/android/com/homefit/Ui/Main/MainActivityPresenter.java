@@ -1,13 +1,11 @@
 package alrefa.android.com.homefit.Ui.Main;
 
-import android.Manifest;
 import android.content.Context;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -17,14 +15,12 @@ import javax.inject.Inject;
 
 import alrefa.android.com.homefit.BuildConfig;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
-import alrefa.android.com.homefit.Data.Network.Model.MainRequests;
-import alrefa.android.com.homefit.Data.Network.Model.OrderDataModel;
+import alrefa.android.com.homefit.Data.Network.Model.Category;
+import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BasePresenter;
 import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
-import alrefa.android.com.homefit.Utils.OnCheckPermissionListenerListener;
-import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -41,15 +37,16 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     @Override
     public void prepareSliders() {
 
+
         // TODO: 2/17/19 remove buildConfig.API_key if buildConfig == debug else....
 
         getCompositeDisposable().add(getDataManager().
                 getBannerSliders(BuildConfig.API_KEY)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<List<MainRequests.SliderRequests>>() {
+                .subscribe(new Consumer<List<Slider>>() {
                     @Override
-                    public void accept(List<MainRequests.SliderRequests> sliderRequests) throws Exception {
+                    public void accept(List<Slider> sliderRequests) throws Exception {
                         AppLogger.e("slider", sliderRequests);
                         getMvpView().onSlidersPrepared(sliderRequests);
                     }
@@ -69,11 +66,11 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
         getCompositeDisposable().add(getDataManager().getAvailableServices(BuildConfig.API_KEY)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<List<MainRequests.CategoriesRequests>>() {
+                .subscribe(new Consumer<List<Category>>() {
                     @Override
-                    public void accept(List<MainRequests.CategoriesRequests> categoriesRequests) throws Exception {
-                        AppLogger.i("services", categoriesRequests);
-                        getMvpView().onAvailableServiceCategoriesPrepared(categoriesRequests);
+                    public void accept(List<Category> categoryRequests) throws Exception {
+                        AppLogger.i("services", categoryRequests);
+                        getMvpView().onAvailableServiceCategoriesPrepared(categoryRequests);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -93,17 +90,17 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     @Override
     public void switchSelectedCategoryItems(int selected_position,
                                             int last_selected_position,
-                                            MainRequests.CategoriesRequests last_selected_categories,
-                                            MainRequests.CategoriesRequests categories,
+                                            Category last_selected_category,
+                                            Category category,
                                             Context context) {
 
         if (selected_position != last_selected_position) {
             getMvpView().onCategoryItemClickSwitch(selected_position
                     , last_selected_position
-                    , last_selected_categories, categories, context);
+                    , last_selected_category, category, context);
 
-            if (categories.getServices() != null && categories.getServices().size() > 0)
-                getMvpView().onAvailableServicesPrepared(categories.getServices());
+            if (category.getServices() != null && category.getServices().size() > 0)
+                getMvpView().onAvailableServicesPrepared(category.getServices());
             else
                 getMvpView().onNoSubCategoryNeeded();
         }
