@@ -1,16 +1,38 @@
 package alrefa.android.com.homefit.Ui.Splash;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseActivity;
+import alrefa.android.com.homefit.Ui.Main.MainActivity;
+import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
+import alrefa.android.com.homefit.Utils.PermissionManager;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SplashScreenActivity extends BaseActivity
         implements SplashScreenMvpView {
+
+    List<Integer> results = new ArrayList<>(); //first index is sliders, second index is services
+
+    boolean is_showing_error = false;
+
+    @BindView(R.id.loading_container)
+    LinearLayout loading_container;
+
+    @BindView(R.id.no_internet_container)
+    LinearLayout noInternet_container;
 
     @Inject
     SplashScreenPresenter<SplashScreenMvpView> mPresenter;
@@ -26,8 +48,14 @@ public class SplashScreenActivity extends BaseActivity
 
         mPresenter.onAttach(this);
 
+
+        results.add(0);
+        results.add(0);
+
         mPresenter.prepareSliders();
+
         mPresenter.prepareAvailableServices();
+
 
     }
 
@@ -49,21 +77,75 @@ public class SplashScreenActivity extends BaseActivity
 
     @Override
     public void onServicePrepared() {
-
+        results.set(1, 1);
+        if (results.get(0) == 1) {
+            startMainActivity();
+            finish();
+        }
     }
 
     @Override
     public void onServicePreparingFailed() {
 
+        if (!is_showing_error) {
+            is_showing_error = true;
+            loading_container.setVisibility(View.GONE);
+            noInternet_container.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void onSlidersPrepared() {
+        results.set(0, 1);
+        if (results.get(1) == 1) {
+            startMainActivity();
+            finish();
 
+        }
+    }
+
+    private void startMainActivity() {
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onSlidersPreparingFailed() {
 
+        if (!is_showing_error) {
+            is_showing_error = true;
+            loading_container.setVisibility(View.GONE);
+            noInternet_container.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void onInternetConnectionFailed() {
+        if (!is_showing_error) {
+            is_showing_error = true;
+            loading_container.setVisibility(View.GONE);
+            noInternet_container.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    @Override
+    public void showLoadingServices() {
+        if (is_showing_error) {
+            is_showing_error = false;
+            loading_container.setVisibility(View.VISIBLE);
+            noInternet_container.setVisibility(View.GONE);
+        }
+    }
+
+    @OnClick(R.id.bt_tryAgain)
+    public void onBtTryAgainClicked() {
+        showLoadingServices();
+        mPresenter.prepareSliders();
+        mPresenter.prepareAvailableServices();
     }
 }

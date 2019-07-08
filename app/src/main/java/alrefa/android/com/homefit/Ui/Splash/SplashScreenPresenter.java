@@ -12,6 +12,7 @@ import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.Ui.Base.BasePresenter;
 import alrefa.android.com.homefit.Utils.AppLogger;
+import alrefa.android.com.homefit.Utils.NetworkUtils;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -27,6 +28,10 @@ public class SplashScreenPresenter<V extends SplashScreenMvpView> extends BasePr
 
     @Override
     public void prepareAvailableServices() {
+        if (!NetworkUtils.isNetworkConnected(getMvpView().getContext())) {
+            getMvpView().onInternetConnectionFailed();
+            return;
+        }
         // TODO: 2/22/19 add view.showLoading & hideLoading
         getCompositeDisposable().add(getDataManager().getAvailableServices(BuildConfig.API_KEY)
                 .subscribeOn(getSchedulerProvider().io())
@@ -62,6 +67,10 @@ public class SplashScreenPresenter<V extends SplashScreenMvpView> extends BasePr
     @Override
     public void prepareSliders() {
         // TODO: 2/17/19 remove buildConfig.API_key if buildConfig == debug else....
+        if (!NetworkUtils.isNetworkConnected(getMvpView().getContext())) {
+            getMvpView().onInternetConnectionFailed();
+            return;
+        }
         getCompositeDisposable().add(getDataManager().
                 getBannerSliders(BuildConfig.API_KEY)
                 .subscribeOn(getSchedulerProvider().io())
@@ -76,7 +85,7 @@ public class SplashScreenPresenter<V extends SplashScreenMvpView> extends BasePr
                             getDataManager().insertSliders(slider).subscribe(new Consumer<Long>() {
                                 @Override
                                 public void accept(Long aLong) throws Exception {
-                                    AppLogger.d("sliderInsertResult",aLong);
+                                    AppLogger.d("sliderInsertResult", aLong);
                                 }
                             }, new Consumer<Throwable>() {
                                 @Override

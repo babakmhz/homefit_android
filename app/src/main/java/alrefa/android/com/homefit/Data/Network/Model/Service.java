@@ -21,8 +21,6 @@ public class Service {
     @SerializedName("title")
     private String title;
 
-
-
     @Property
     @Expose
     @SerializedName("category")

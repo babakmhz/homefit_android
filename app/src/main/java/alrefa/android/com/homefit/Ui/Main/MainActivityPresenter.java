@@ -1,5 +1,6 @@
 package alrefa.android.com.homefit.Ui.Main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Geocoder;
 import android.location.Location;
@@ -13,9 +14,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import alrefa.android.com.homefit.BuildConfig;
 import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.Model.Category;
+import alrefa.android.com.homefit.Data.Network.Model.Service;
 import alrefa.android.com.homefit.Data.Network.Model.Slider;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BasePresenter;
@@ -41,7 +42,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
         // TODO: 2/17/19 remove buildConfig.API_key if buildConfig == debug else....
 
         getCompositeDisposable().add(getDataManager().
-                getBannerSliders(BuildConfig.API_KEY)
+                getSlidersFromDb()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<List<Slider>>() {
@@ -63,7 +64,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     @Override
     public void prepareAvailableServices() {
         // TODO: 2/22/19 add view.showLoading & hideLoading
-        getCompositeDisposable().add(getDataManager().getAvailableServices(BuildConfig.API_KEY)
+        getCompositeDisposable().add(getDataManager().getCategoriesFromDb()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<List<Category>>() {
@@ -87,6 +88,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
         // TODO: 7/6/19  
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void switchSelectedCategoryItems(int selected_position,
                                             int last_selected_position,
@@ -99,9 +101,16 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
                     , last_selected_position
                     , last_selected_category, category, context);
 
-            if (category.getServices() != null && category.getServices().size() > 0)
-                getMvpView().onAvailableServicesPrepared(category.getServices());
-            else
+            if (category.getServices() != null && category.getServices().size() > 0) {
+                getDataManager().getSubCategoriesFromDb(category.getId()).subscribe(new Consumer<List<Service>>() {
+                    @Override
+                    public void accept(List<Service> services) throws Exception {
+                        getMvpView().onAvailableServicesPrepared(
+                                services);
+                    }
+                });
+
+            } else
                 getMvpView().onNoSubCategoryNeeded();
         }
     }
@@ -133,7 +142,7 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     }
 
     @Override
-    public void requestLocationUpdates(final Context context,LocationListener listener) {
+    public void requestLocationUpdates(final Context context, LocationListener listener) {
 
 
         getMvpView().showLoadingOnMap();
@@ -165,7 +174,6 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     }
 
 
-
     @Override
     public void getLastKnownLocation(Context context) {
         if (AppUtils.getLastKnownLocation(context) != null)
@@ -192,8 +200,6 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
         getMvpView().showBottomSheetView();
 
     }
-
-
 
 
 }
