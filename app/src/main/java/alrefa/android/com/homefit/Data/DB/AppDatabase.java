@@ -1,5 +1,7 @@
 package alrefa.android.com.homefit.Data.DB;
 
+import android.util.Log;
+
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
@@ -20,6 +22,7 @@ import io.reactivex.Observable;
 
 public class AppDatabase implements DatabaseHelper {
 
+    private static final String TAG = "AppDatabase";
     private final DaoSession daoSession;
     private SchedulerProvider schedulerProvider;
 
@@ -41,6 +44,7 @@ public class AppDatabase implements DatabaseHelper {
             @Override
             public Long call() throws Exception {
                 //first we delete existing sliders in database
+                daoSession.clear();
                 daoSession.getSliderDao().deleteAll();
                 //inserting sliders loaded from server in db
                 return daoSession.getSliderDao().insert(model);
@@ -77,7 +81,7 @@ public class AppDatabase implements DatabaseHelper {
                     daoSession.getServiceDao().queryBuilder().
                             where(ServiceDao.Properties.Category.eq(model.getId())).buildDelete()
                             .executeDeleteWithoutDetachingEntities();
-                    servicesDataModel.setCategory(model.getId());
+                    servicesDataModel.setCategory((int) model.getId());
                     for (int i = 0; i < service.size(); i++) {
                         // inserting all services model for one category entity
                         servicesDataModel.setTitle(service.get(i).getTitle());
@@ -90,6 +94,8 @@ public class AppDatabase implements DatabaseHelper {
                     // inserting for category entity
                 } catch (Exception e) {
                     e.printStackTrace();
+                    if (BuildConfig.DEBUG)
+                        Log.i(TAG, "call:ERRORDB " + e.toString());
                 }
                 return daoSession.insert(model);
             }

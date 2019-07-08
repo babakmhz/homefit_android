@@ -26,6 +26,8 @@ public class SplashScreenActivity extends BaseActivity
 
         mPresenter.onAttach(this);
 
+        mPresenter.prepareSliders();
+        mPresenter.prepareAvailableServices();
 
     }
 
@@ -35,7 +37,33 @@ public class SplashScreenActivity extends BaseActivity
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.onDetach();
+    }
+
+    @Override
     public void showMessage(View container, int resId) {
+
+    }
+
+    @Override
+    public void onServicePrepared() {
+
+    }
+
+    @Override
+    public void onServicePreparingFailed() {
+
+    }
+
+    @Override
+    public void onSlidersPrepared() {
+
+    }
+
+    @Override
+    public void onSlidersPreparingFailed() {
 
     }
 }

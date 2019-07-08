@@ -18,7 +18,7 @@ public class Category {
     @Id
     @Expose
     @SerializedName("id")
-    private int id;
+    private long id;
 
     @Property
     @Expose
@@ -57,8 +57,8 @@ public class Category {
     @Generated(hash = 40161530)
     private transient CategoryDao myDao;
 
-    @Generated(hash = 673601753)
-    public Category(int id, String title, String title_arabic, String image_url,
+    @Generated(hash = 587392174)
+    public Category(long id, String title, String title_arabic, String image_url,
                     String image_selected_url) {
         this.id = id;
         this.title = title;
@@ -87,14 +87,6 @@ public class Category {
         this.title = title;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getImage_selected_url() {
         return image_selected_url;
     }
@@ -102,7 +94,6 @@ public class Category {
     public void setImage_selected_url(String image_selected_url) {
         this.image_selected_url = image_selected_url;
     }
-
 
     public String getTitle_arabic() {
         return title_arabic;
@@ -178,7 +169,21 @@ public class Category {
         myDao.update(this);
     }
 
-    /** called by internal mechanisms, do not call yourself. */
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
     @Generated(hash = 503476761)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;

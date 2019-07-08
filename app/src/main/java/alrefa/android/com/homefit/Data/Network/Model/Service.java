@@ -14,7 +14,7 @@ public class Service {
     @Id
     @Expose
     @SerializedName("id")
-    private int id;
+    private long id;
 
     @Property
     @Expose
@@ -44,8 +44,8 @@ public class Service {
     private float price;
 
 
-    @Generated(hash = 555748096)
-    public Service(int id, String title, int category, String title_arabic,
+    @Generated(hash = 2057270751)
+    public Service(long id, String title, int category, String title_arabic,
             String image_url, float price) {
         this.id = id;
         this.title = title;
@@ -84,9 +84,7 @@ public class Service {
         this.title = title;
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -106,5 +104,13 @@ public class Service {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

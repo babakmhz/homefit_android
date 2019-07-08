@@ -5,7 +5,8 @@ import alrefa.android.com.homefit.Data.Network.Model.Slider;
 public interface SplashScreenMvpPresenter {
 
 
-    void saveSliders();
+    void prepareAvailableServices();
     void saveCategories();
+    void prepareSliders();
 }
 
