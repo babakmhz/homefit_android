@@ -11,8 +11,10 @@ import alrefa.android.com.homefit.Data.Network.Model.Category;
 public interface MainActivityMvpPresenter {
 
     void prepareSliders();
+    void prepareSlidersFromServer();
 
     void prepareAvailableServices();
+    void prepareAvailableServicesFromServer();
 
     void checkPermissions();
 

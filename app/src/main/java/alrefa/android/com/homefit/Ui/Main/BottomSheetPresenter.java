@@ -73,23 +73,34 @@ public class BottomSheetPresenter<V extends BottomSheetMvpView> extends BasePres
     }
 
     @Override
-    public void getProviders(MainActivityMvpView mainMvpView) {
+    public void getProviders(final MainActivityMvpView mainMvpView) {
         // TODO: 7/1/19 change token
         String categoryId = mainMvpView.getSelectedServiceIdFromActivity();
         List<String> serviceIds = mainMvpView.getSelectedServiceIds();
         if (categoryId != null && !"".equals(categoryId) && serviceIds != null && serviceIds.size() > 0) {
-            getCompositeDisposable().add(getDataManager()
-                    .getAvailableProviders(BuildConfig.API_KEY,
-                            categoryId,
-                            serviceIds).subscribeOn(getSchedulerProvider().newThread())
-                    .observeOn(getSchedulerProvider().ui())
-                    .subscribe(new Consumer<List<ProvidersDataModel>>() {
-                        @Override
-                        public void accept(List<ProvidersDataModel> ProvidersDataModels) throws Exception {
-                            AppLogger.i("models:", ProvidersDataModels);
-                            getMvpView().onProvidersPrepared(ProvidersDataModels);
-                        }
-                    }));
+            try {
+                getCompositeDisposable().add(getDataManager()
+                        .getAvailableProviders(BuildConfig.API_KEY,
+                                categoryId,
+                                serviceIds).subscribeOn(getSchedulerProvider().newThread())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(new Consumer<List<ProvidersDataModel>>() {
+                            @Override
+                            public void accept(List<ProvidersDataModel> ProvidersDataModels) throws Exception {
+                                AppLogger.i("models:", ProvidersDataModels);
+                                getMvpView().onProvidersPrepared(ProvidersDataModels);
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                mainMvpView.onSubmitOrderFailed();
+
+                            }
+                        }));
+            } catch (Exception e) {
+                e.printStackTrace();
+                mainMvpView.onSubmitOrderFailed();
+            }
         }
 
     }

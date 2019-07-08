@@ -60,7 +60,6 @@ import alrefa.android.com.homefit.Utils.AppLogger;
 import alrefa.android.com.homefit.Utils.AppUtils;
 import alrefa.android.com.homefit.Utils.CommonUtils;
 import alrefa.android.com.homefit.Utils.GoogleMapsCustomSupportFragment;
-import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
 import alrefa.android.com.homefit.Utils.PermissionManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -248,8 +247,8 @@ public class MainActivity extends BaseActivity
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.prepareSliders();
-                mPresenter.prepareAvailableServices();
+                mPresenter.prepareSlidersFromServer();
+                mPresenter.prepareAvailableServicesFromServer();
                 recyclerSubCategories.setVisibility(View.GONE);
                 subCategoryIndicatorContainer.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
@@ -257,24 +256,6 @@ public class MainActivity extends BaseActivity
         });
 
         bottomSheetMvpPresenter.onAttach(bottomSheetFragment);
-
-        permissionManager.requestPermission(Manifest.permission.ACCESS_FINE_LOCATION,
-                new OnRequestPermissionResultListener() {
-                    @Override
-                    public void onDontAskAgain() {
-
-                    }
-
-                    @Override
-                    public void onGranted() {
-
-                    }
-
-                    @Override
-                    public void onDenied() {
-
-                    }
-                });
 
 
     }
@@ -581,6 +562,7 @@ public class MainActivity extends BaseActivity
             }
         });
         sweetAlertDialog.show();
+        bottomSheetFragment.dismiss();
     }
 
     @Override
