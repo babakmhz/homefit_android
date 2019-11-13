@@ -79,7 +79,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/ic_road" />
+                app:srcCompat="@drawable/ic_road" />
 
             <ImageView
                 android:id="@+id/action_open_website_bannerslider"

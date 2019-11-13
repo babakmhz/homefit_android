@@ -31,4 +31,17 @@
     <string name="Error">Error!</string>
     <string name="Sorry_Please_Try_Again_Later">Sorry! Please Try Again Later!</string>
     <string name="please_enable_your_location_service">Please Enable Your Location Service</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="homefit_is_home_service_providing_application_for_oman_people_to_regiter_their_desired_home_services">
+        Homefit is home service providing application for oman people
+        to register their desired home services online!</string>
+    <string name="professional_experts">Professional Experts</string>
+    <string name="welcome_to_homefit">Welcome To Homefit</string>
+    <string name="homefit_provides_excellent_service_providing_quality_due_to_professional_experts_working_with">Homefit provides excellent service providing quality due to professional experts working with!</string>
+    <string name="we_provide_your_services_in_your_location_currently_in_muscat_only">
+        We Provide Your Services In Your Location (Currently In Muscat Only)
+    </string>
+    <string name="join_us_now">Join Us Now!</string>
+    <string name="Please_Enter_Your_Phone_Number_To_Proceed">Please Enter Your Phone Number To Proceed</string>
+    <string name="code">Code</string>
 </resources>

@@ -55,8 +55,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public PrefsHelper ProvidePrefsHelper() {
-        return new AppPreferences();
+    public PrefsHelper ProvidePrefsHelper(@ApplicationContext Context context) {
+        return new AppPreferences(context);
     }
 
     @Provides
@@ -83,7 +83,7 @@ public class ApplicationModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/en/Lato-Medium.ttf")
+                .setDefaultFontPath("fonts/en/exo2_regular.ttf")
                 .build();
     }
 

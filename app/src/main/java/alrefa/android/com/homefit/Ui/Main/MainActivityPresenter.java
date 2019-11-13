@@ -5,6 +5,7 @@ import android.content.Context;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -213,6 +214,12 @@ public class MainActivityPresenter<V extends MainActivityMvpView> extends BasePr
     public void requestLocationUpdates(final Context context, LocationListener listener) {
 
 
+        if (!AppUtils.checkLocationPermission(context)){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                AppUtils.askLocationPermission(getMvpView().getActivity());
+            }
+            return;
+        }
         getMvpView().showLoadingOnMap();
         AppUtils.updateLocation(new LocationListener() {
             @Override

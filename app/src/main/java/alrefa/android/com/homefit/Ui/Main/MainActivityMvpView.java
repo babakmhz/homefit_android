@@ -2,6 +2,7 @@ package alrefa.android.com.homefit.Ui.Main;
 
 import android.content.Context;
 import android.location.Location;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.List;
@@ -23,6 +24,8 @@ public interface MainActivityMvpView extends MvpView {
                                    Category last_selected_category,
                                    Category category,
                                    Context context);
+
+    AppCompatActivity getActivity();
 
     void onAvailableServicesPrepared(List<Service> services);
 

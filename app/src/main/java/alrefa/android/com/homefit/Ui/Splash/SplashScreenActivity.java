@@ -1,6 +1,5 @@
 package alrefa.android.com.homefit.Ui.Splash;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +11,15 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import alrefa.android.com.homefit.Data.Prefs.AppPreferences;
 import alrefa.android.com.homefit.R;
 import alrefa.android.com.homefit.Ui.Base.BaseActivity;
+import alrefa.android.com.homefit.Ui.Intro.IntroActivity;
 import alrefa.android.com.homefit.Ui.Main.MainActivity;
-import alrefa.android.com.homefit.Utils.OnRequestPermissionResultListener;
-import alrefa.android.com.homefit.Utils.PermissionManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashScreenActivity extends BaseActivity
         implements SplashScreenMvpView {
@@ -38,23 +38,38 @@ public class SplashScreenActivity extends BaseActivity
     SplashScreenPresenter<SplashScreenMvpView> mPresenter;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppPreferences appPreferences = new AppPreferences(this);
         setContentView(R.layout.activity_spash_screen);
+        if (!appPreferences.get_firstLogin()) {
+            startActivity(new Intent(this
+                    , IntroActivity.class));
+            finish();
+        } else {
 
-        getActivityComponent().inject(this);
 
-        setUnBinder(ButterKnife.bind(this));
+            getActivityComponent().inject(this);
 
-        mPresenter.onAttach(this);
+            setUnBinder(ButterKnife.bind(this));
+
+            mPresenter.onAttach(this);
 
 
-        results.add(0);
-        results.add(0);
+            results.add(0);
+            results.add(0);
 
-        mPresenter.prepareSliders();
+            mPresenter.prepareSliders();
 
-        mPresenter.prepareAvailableServices();
+            mPresenter.prepareAvailableServices();
+
+        }
 
 
     }
@@ -67,6 +82,7 @@ public class SplashScreenActivity extends BaseActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mPresenter!=null)
         mPresenter.onDetach();
     }
 

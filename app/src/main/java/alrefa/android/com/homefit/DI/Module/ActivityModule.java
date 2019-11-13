@@ -19,10 +19,10 @@ import alrefa.android.com.homefit.Data.Network.Model.Category;
 import alrefa.android.com.homefit.Data.Network.Model.DateTimeDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.ProvidersDataModel;
 import alrefa.android.com.homefit.Data.Network.Model.Service;
-import alrefa.android.com.homefit.Ui.Intro.FragmentSlide1;
-import alrefa.android.com.homefit.Ui.Intro.FragmentSlide2;
-import alrefa.android.com.homefit.Ui.Intro.FragmentSlide3;
-import alrefa.android.com.homefit.Ui.Intro.FragmentSlide4;
+import alrefa.android.com.homefit.Ui.Intro.FragmentChooseLanguage;
+import alrefa.android.com.homefit.Ui.Intro.FragmentWelcome;
+import alrefa.android.com.homefit.Ui.Intro.FragmentExperts;
+import alrefa.android.com.homefit.Ui.Intro.FragmentLocation;
 import alrefa.android.com.homefit.Ui.Intro.IntroMvpPresenter;
 import alrefa.android.com.homefit.Ui.Intro.IntroMvpView;
 import alrefa.android.com.homefit.Ui.Intro.IntroPresenter;
@@ -105,10 +105,10 @@ public class ActivityModule {
     @PerActivity
     List<Fragment> ProvideSliderFragments() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new FragmentSlide1());
-        fragments.add(new FragmentSlide2());
-        fragments.add(new FragmentSlide3());
-        fragments.add(new FragmentSlide4());
+        fragments.add(new FragmentChooseLanguage());
+        fragments.add(new FragmentWelcome());
+        fragments.add(new FragmentExperts());
+        fragments.add(new FragmentLocation());
         return fragments;
     }
 

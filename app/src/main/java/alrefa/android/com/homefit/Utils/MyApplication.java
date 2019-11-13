@@ -15,6 +15,7 @@ import alrefa.android.com.homefit.Data.DataManagerHelper;
 import alrefa.android.com.homefit.Data.Network.Model.DaoMaster;
 import alrefa.android.com.homefit.Data.Network.Model.DaoSession;
 import alrefa.android.com.homefit.Utils.rx.SchedulerProvider;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 public class MyApplication extends Application {
@@ -29,8 +30,8 @@ public class MyApplication extends Application {
 
     @Inject
     DataManagerHelper mDataManager;
-//    @Inject
-//    CalligraphyConfig mCalligraphyConfig;
+    @Inject
+    CalligraphyConfig mCalligraphyConfig;
 
     private ApplicationComponent mApplicationComponent;
 
@@ -50,10 +51,13 @@ public class MyApplication extends Application {
         if (BuildConfig.DEBUG) {
             AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
         }
-//        CalligraphyConfig.initDefault(mCalligraphyConfig);
+        CalligraphyConfig.initDefault(mCalligraphyConfig);
 
     }
 
+    public CalligraphyConfig getmCalligraphyConfig(){
+        return this.mCalligraphyConfig;
+    }
 
     public ApplicationComponent getComponent() {
         return mApplicationComponent;

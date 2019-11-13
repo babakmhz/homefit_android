@@ -111,7 +111,7 @@ public class ProvidersRecyclerAdapter extends RecyclerView.Adapter<ProvidersRecy
 //            AppLogger.d("provider",model.getName());
             model = providersDataModels.get(position);
             text_provider_title.setText(model.getName());
-            text_provider_cost.setText(String.valueOf(model.getTotalCost()));
+            text_provider_cost.setText(String.valueOf(model.getTotalCost())+"$");
             Glide.with(context).load(model.getProfile_photo()).centerCrop()
                     .into(image_provider);
 

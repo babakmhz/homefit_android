@@ -1,14 +1,20 @@
 package alrefa.android.com.homefit.Utils;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,6 +34,18 @@ public final class AppUtils {
 
     private AppUtils() {
         // This class is not publicly instantiable
+    }
+
+    public static boolean checkLocationPermission(Context context) {
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED;
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public static void askLocationPermission(Activity destinationActivity) {
+        destinationActivity.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION}, AppConstants.LOCATION_PERMISSION_REQUEST_CODE);
     }
 
     @Nullable
@@ -182,11 +200,11 @@ public final class AppUtils {
         time.setTextColor(context.getResources().getColor(R.color.black));
     }
 
-    public static String[] fixLocatoinFromString(String location){
+    public static String[] fixLocatoinFromString(String location) {
         String data[] = new String[2];
         //first index in lat and second index in long
-        data[0] = location.substring(0,location.indexOf(","));
-        data[1] = location.substring(location.indexOf(",")+1);
+        data[0] = location.substring(0, location.indexOf(","));
+        data[1] = location.substring(location.indexOf(",") + 1);
 
         return data;
     }

@@ -18,6 +18,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -66,6 +67,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends BaseActivity
         implements MainActivityMvpView, ServiceCategoryRecyclerAdapter.CallBack
@@ -309,9 +311,10 @@ public class MainActivity extends BaseActivity
     public void onSlidersPrepared(List<Slider> sliders) {
         this.sliders = sliders;
         AppLogger.i("sliderImage", sliders.get(0).getImage_url());
-        Glide.with(this).load(sliders.get(0)
-                .getImage_url()).centerCrop()
-                .into(imageBannerslider);
+        if (sliders != null)
+            Glide.with(this).load(sliders.get(0)
+                    .getImage_url()).centerCrop()
+                    .into(imageBannerslider);
     }
 
     @Override
@@ -348,6 +351,11 @@ public class MainActivity extends BaseActivity
 
         recyclerCategories.getChildAt(selected_position)
                 .findViewById(R.id.selected_image).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public AppCompatActivity getActivity() {
+        return this;
     }
 
     @Override
@@ -603,6 +611,11 @@ public class MainActivity extends BaseActivity
         return this.serviceId;
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
 
     @Override
     public void onCategoryItemClicked(int selected_position,
@@ -660,7 +673,7 @@ public class MainActivity extends BaseActivity
             you_marker.setPosition(latLng);
             cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, AppConstants.GOOGLE_MAPS_CAMERA_ZOOM);
             googleMap.animateCamera(cameraUpdate);
-            mPresenter.getAddress(latLng, geocoder);
+//            mPresenter.getAddress(latLng, geocoder);
         }
 
     }
