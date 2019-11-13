@@ -1,0 +1,68 @@
+https://android-arsenal.com/details/1/3043 ---> for navigation view library
+use app intro library
+-----------------------------
+use passive Location method for getting location or getLastKnownLocation
+--------------------------
+android money exchange libraries :
+https://github.com/NewtronLabs/EasyExchange?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6498
+https://android-arsenal.com/details/1/5123
+---------------------
+date ? -----> you can use calendar library ///
+or from server / : {
+    send service ----> get date and time
+
+    get date time {
+        datetime database :
+            service
+            time
+            date
+    }
+
+}
+
+------------------------
+
+MAKE TWO TYPES OF SERVICES : 1) SERVICE 2) STORE
+
+---------------------------
+use placeholder view for bannerSlider
+-----------------------
+
+use 58dp * 58dp for standard category images and white background(important)
+--------------------
+sms OTP
+
+
+signup date in providers , slider for E-commrece , set providers by rate
+
+payment gate, in-place
+
+kapsool,
+
+---------------------------------------------
+
+today : fix ui and category like pic (elevations etc)/
+ fix category images /
+ beautify slider items/
+ fix category selection View
+fix subServices received from API and show it with animation when user clicks each category
+
+------------------------------------------
+
+sub category implementation, Location , bottom menu,
+-----------------------------
+
+
+create provides profiles and service cost for each provider and profile photo
+
+create recycler adapter for provider
+
+create recycler adapter for providerDates/Times
+
+create recipe dialog after submit order is successful
+
+---------------------------------------------------
+
+progress dialog , token (prefs), slider Items click definition, fix user current location,
+server configuration, register(OTP),
+

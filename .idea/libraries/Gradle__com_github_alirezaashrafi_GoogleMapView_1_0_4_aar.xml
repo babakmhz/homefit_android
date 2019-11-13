@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.alirezaashrafi:GoogleMapView:1.0.4@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/GoogleMapView-1.0.4.aar/80fe05a34ed3a5ed6b1899235d38ad45/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/GoogleMapView-1.0.4.aar/80fe05a34ed3a5ed6b1899235d38ad45/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.alirezaashrafi/GoogleMapView/1.0.4/e090064b2c5097cb5be27c154b099b1540233cc1/GoogleMapView-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
