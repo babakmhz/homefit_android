@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="Nexus 6" />
+        <device id="Nexus 5X" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="internal" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AvailableLibraryUpdateStorage">
+    <last-search-timestamp>1562420183992</last-search-timestamp>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29939758-8e5f-44f2-b467-8e1fec9575c7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="android8" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="HomeFit" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="HomeFit" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.57371616">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1110">
+                  <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2400">
+                  <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/DatePickerRecyclerAdapter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2944">
+                  <caret line="261" selection-start-line="261" selection-end-line="261" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#21998#22250#0" expanded="true" />
+                    <element signature="e#22249#22250#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetFragment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseBottomSheetFragment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DataManager.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="480">
+                  <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/MyApplication.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1140">
+                  <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/IntroActivity.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppUtils.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1260">
+                  <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1410">
+                  <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_content.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="720">
+                  <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2460">
+                  <caret line="82" column="15" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/description_content.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="990">
+                  <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer2" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/build.gradle">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2790">
+                  <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/AppApiService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="379">
+                  <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/build.gradle">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1620">
+                  <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Prefs/AppPreferences.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1350">
+                  <caret line="52" selection-start-line="52" selection-end-line="52" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/app/SharedPreferencesImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="7140">
+                  <caret line="290" selection-start-line="290" selection-end-line="290" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>wait</find>
+      <find>Loading</find>
+      <find>backgrou</find>
+      <find>showMessage</find>
+      <find>onSlider</find>
+      <find>Direc</find>
+      <find>String</find>
+      <find>camera</find>
+      <find>requestLocationUpdates</find>
+      <find>onProv</find>
+      <find>Zoom</find>
+      <find>showDa</find>
+      <find>green</find>
+      <find>gener</find>
+      <find>SchedulerProvider</find>
+      <find>Presenter</find>
+      <find>DataManager</find>
+      <find>Presente</find>
+      <find>getCate</find>
+      <find>long</find>
+      <find>Call</find>
+      <find>Refresh</find>
+      <find>location</find>
+      <find>onPermis</find>
+      <find>back</find>
+      <find>Lat</find>
+      <find>elevation</find>
+      <find>activit</find>
+      <find>networ</find>
+      <find>networking</find>
+    </findStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../CafeFanus/app/keystore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/Model/Category.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/Model/Service.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenMvpPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Component/ActivityComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_unplugged.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenMvpView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_spash_screen.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_slide1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentSlide1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentWelcome.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentExperts.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_professional.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_experts.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_welcome.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentChooseLanguage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentSlide4.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_location.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentResister.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentRegister.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentConfrimPhoneNumber.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_edit_text_input_phone_number.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_confirm_phone.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentConfirmPhoneNumber.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_address.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppConstants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/IntroActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Prefs/AppPreferences.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Module/ApplicationModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentLocation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/ProvidersRecyclerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/recycler_sub_categories_template.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_bannerslider.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/description_content.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/DbOpenHelper.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/MyApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="291" />
+    <option name="y" value="158" />
+    <option name="width" value="1397" />
+    <option name="height" value="791" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <hideEmptyPackages AndroidView="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="applicatiom&#9;PSI&#9;JAVA://alrefa.android.com.homefit.DI.Module.ApplicationModule&#10;presenter&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityPresenter.java&#10;bottomshfra&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Main.BottomSheetFragment&#10;categore&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/ServiceCategoryRecyclerAdapter.java&#10;mainacmvpview&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Main.MainActivityMvpView&#10;mainac&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java&#10;bompre&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetMvpPresenter.java&#10;bottoms&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetMvpView.java&#10;acmod&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/DI/Module/ActivityModule.java&#10;maina&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java&#10;mainacm&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpPresenter.java&#10;mvppre&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Base.MvpPresenter&#10;acticompo&#9;PSI&#9;JAVA://alrefa.android.com.homefit.DI.Component.ActivityComponent&#10;actmodu&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/DI/Module/ActivityModule.java&#10;dateconte&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/bottom_sheet_date_provider_content.xml&#10;fragment&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentSlide1.java&#10;frag&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseBottomSheetFragment.java&#10;apiser&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Data/Network/AppApiService.java&#10;endpo&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Utils/ApiEndpoints.java&#10;adapter&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/ServiceCategoryRecyclerAdapter.java&#10;datepicker&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/recycler_date_picker_template.xml&#10;actimo&#9;PSI&#9;JAVA://alrefa.android.com.homefit.DI.Module.ActivityModule&#10;template&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/recycler_date_picker_template.xml&#10;date&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/drawable/selector_date_choose.xml&#10;category&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/category_content.xml&#10;consta&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Utils.AppConstants&#10;mainacpresenter&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityPresenter.java&#10;main&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java&#10;notes&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/notes.txt&#10;gradle&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/build.gradle&#10;actmain&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/activity_main.xml&#10;bottomshe&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/bottom_sheet_view.xml&#10;mainacpres&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Main.MainActivityPresenter&#10;mainacmvp&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpView.java&#10;mainco&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/activity_main_content.xml&#10;baseac&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseActivity.java&#10;mainacmv&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpView.java&#10;recycleradapter&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Main.ServiceCategoryRecyclerAdapter&#10;mainamvpview&#9;PSI&#9;JAVA://alrefa.android.com.homefit.Ui.Main.MainActivityMvpView&#10;strings&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/values/strings.xml&#10;desc&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/description_content.xml&#10;description&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/description_content.xml&#10;layout&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/layout_map.xml&#10;selector&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/drawable/selector_edit_text_map_address.xml&#10;editte&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/drawable/selector_edit_text_map_address.xml&#10;acmain&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/activity_main.xml&#10;content&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/activity_main_content.xml&#10;note&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/drawable/ic_notepad.xml&#10;layou&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/layout/layout_map.xml&#10;color&#9;FILE&#9;file:///home/babakmhz/0_stuff/0_programming/android-studio-projects/HomeFit/app/src/main/res/values/colors.xml" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../Android/Sdk" />
+    <property name="device.picker.selection" value="android8" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/EasyPermission-master" />
+    <property name="project.structure.last.edited" value="Suggestions" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="false" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1557304403837" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/assets/fonts" />
+      <recent name="$PROJECT_DIR$/app/src/main" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="alrefa.android.com.homefit.Ui.Splash" />
+      <recent name="alrefa.android.com.homefit" />
+      <recent name="alrefa.android.com.homefit.Ui.SliderActivity" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="alrefa.android.com.homefit" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/assets/fonts/en" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils" />
+      <recent name="$PROJECT_DIR$/app/src/androidTest/java/alrefa/android/com/homefit" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="alrefa.android.com.homefit.Ui.Intro" />
+      <recent name="alrefa.android.com.homefit.Data.DB" />
+      <recent name="alrefa.android.com.homefit.Ui.Splash" />
+      <recent name="alrefa.android.com.homefit.Ui.Main" />
+      <recent name="alrefa.android.com.homefit.Ui.Base" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="FixDateTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alrefa.android.com.homefit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alrefa.android.com.homefit" />
+      <option name="MAIN_CLASS_NAME" value="alrefa.android.com.homefit.FixDateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FixDateTest.fixTimeText" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alrefa.android.com.homefit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alrefa.android.com.homefit" />
+      <option name="MAIN_CLASS_NAME" value="alrefa.android.com.homefit.FixDateTest" />
+      <option name="METHOD_NAME" value="fixTimeText" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FixDateTest.getDayOfWeekName" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alrefa.android.com.homefit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alrefa.android.com.homefit" />
+      <option name="MAIN_CLASS_NAME" value="alrefa.android.com.homefit.FixDateTest" />
+      <option name="METHOD_NAME" value="getDayOfWeekName" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FixDateTest.testLngLocation" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alrefa.android.com.homefit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alrefa.android.com.homefit" />
+      <option name="MAIN_CLASS_NAME" value="alrefa.android.com.homefit.FixDateTest" />
+      <option name="METHOD_NAME" value="testLngLocation" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FixDateTest.testLocationFix" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alrefa.android.com.homefit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alrefa.android.com.homefit" />
+      <option name="MAIN_CLASS_NAME" value="alrefa.android.com.homefit.FixDateTest" />
+      <option name="METHOD_NAME" value="testLocationFix" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="app" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="app" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Android JUnit.FixDateTest" />
+      <item itemvalue="Android JUnit.FixDateTest.fixTimeText" />
+      <item itemvalue="Android JUnit.FixDateTest.getDayOfWeekName" />
+      <item itemvalue="Android JUnit.FixDateTest.testLngLocation" />
+      <item itemvalue="Android JUnit.FixDateTest.testLocationFix" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.FixDateTest" />
+        <item itemvalue="Android JUnit.FixDateTest.testLngLocation" />
+        <item itemvalue="Android JUnit.FixDateTest.testLocationFix" />
+        <item itemvalue="Android JUnit.FixDateTest.fixTimeText" />
+        <item itemvalue="Android JUnit.FixDateTest.getDayOfWeekName" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29939758-8e5f-44f2-b467-8e1fec9575c7" name="Default" comment="" />
+      <created>1545994394402</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545994394402</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="FixDateTest_getDayOfWeekName - 2019.05.12 at 13h 17m 37s.xml">
+      <configuration name="FixDateTest.getDayOfWeekName" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest - 2019.05.12 at 13h 19m 02s.xml">
+      <configuration name="FixDateTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_fixTimeText - 2019.07.01 at 20h 03m 39s.xml">
+      <configuration name="FixDateTest.fixTimeText" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_fixTimeText - 2019.07.01 at 20h 04m 22s.xml">
+      <configuration name="FixDateTest.fixTimeText" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_fixTimeText - 2019.07.01 at 20h 04m 35s.xml">
+      <configuration name="FixDateTest.fixTimeText" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_testLocationFix - 2019.07.06 at 16h 56m 15s.xml">
+      <configuration name="FixDateTest.testLocationFix" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_testLocationFix - 2019.07.06 at 16h 56m 56s.xml">
+      <configuration name="FixDateTest.testLocationFix" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_testLngLocation - 2019.07.06 at 16h 58m 21s.xml">
+      <configuration name="FixDateTest.testLngLocation" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest_testLngLocation - 2019.07.06 at 16h 58m 33s.xml">
+      <configuration name="FixDateTest.testLngLocation" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="FixDateTest - 2019.07.06 at 16h 58m 39s.xml">
+      <configuration name="FixDateTest" configurationId="AndroidJUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="59" y="27" width="1861" height="1053" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48642266" weight="0.10381005" />
+      <window_info id="Structure" order="1" sideWeight="0.5022124" side_tool="true" weight="0.18056323" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Build Variants" order="3" sideWeight="0.5011136" side_tool="true" weight="0.18467475" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.3296582" />
+      <window_info id="Captures" order="6" sideWeight="0.51357734" side_tool="true" weight="0.19572192" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Resources Explorer" order="8" sideWeight="0.4988938" weight="0.32965213" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32853982" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32853982" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.3971239" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.496963" weight="0.22732362" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5016538" side_tool="true" weight="0.32850778" />
+      <window_info anchor="bottom" id="Multi-OS Engine" order="10" weight="0.32853982" />
+      <window_info anchor="bottom" x="69" y="347" width="1821" height="678" id="Logcat" order="11" sideWeight="0.50358915" side_tool="true" weight="0.29646018" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32853982" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32522124" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Preview" order="4" sideWeight="0.49778762" weight="0.28437328" />
+      <window_info anchor="right" id="Device File Explorer" order="5" sideWeight="0.5011062" side_tool="true" weight="0.32909995" />
+      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.4988938" weight="0.32909995" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Assistant" order="9" weight="0.32983425" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49778762" visible="true" weight="0.12424075" />
+      <window_info id="Structure" order="1" sideWeight="0.5022124" side_tool="true" weight="0.18056323" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Build Variants" order="3" sideWeight="0.5011136" side_tool="true" weight="0.18467475" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.3296582" />
+      <window_info id="Captures" order="6" side_tool="true" weight="0.24958587" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Resources Explorer" order="8" sideWeight="0.4988938" weight="0.32965213" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32853982" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32853982" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.3971239" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4983462" weight="0.29646018" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5016538" side_tool="true" weight="0.32850778" />
+      <window_info anchor="bottom" id="Multi-OS Engine" order="10" weight="0.32853982" />
+      <window_info anchor="bottom" id="Logcat" order="11" weight="0.5176991" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32853982" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32522124" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Preview" order="4" sideWeight="0.49778762" weight="0.28492546" />
+      <window_info anchor="right" id="Device File Explorer" order="5" sideWeight="0.5011062" side_tool="true" weight="0.32909995" />
+      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.4988938" weight="0.32909995" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Assistant" order="9" weight="0.32983425" />
+    </layout-to-restore>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint suspend="NONE" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java</url>
+          <line>775</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetFragment.java</url>
+          <line>211</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetPresenter.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseActivity.java</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Module/ActivityModule.java</url>
+          <line>212</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenPresenter.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/AppDatabase.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/AppDatabase.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenActivity.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/AppApiService.java</url>
+          <line>30</line>
+          <properties class="alrefa.android.com.homefit.Data.Network.AppApiService" method="getAvailableServices">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.AppIntro/AppIntro/4.2.3/c9873c2d1aba7db718669a729a458eabf7d23347/AppIntro-4.2.3-sources.jar!/com/github/paolorotolo/appintro/AppIntro2.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_address.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_spash_screen.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_location.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Component/ApplicationComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityMvpView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/content/Intent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="5570" selection-start-line="5570" selection-end-line="5570" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="2891" selection-start-line="2891" selection-end-line="2891" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/app/Instrumentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="1213" selection-start-line="1213" selection-end-line="1213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="6975" selection-start-line="6975" selection-end-line="6975" />
+          <folding>
+            <element signature="e#234044#234045#0" expanded="true" />
+            <element signature="e#234098#234099#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Module/ApplicationModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/recycler_sub_categories_template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2250">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/DbOpenHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="44" column="78" selection-start-line="44" selection-start-column="78" selection-end-line="44" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/FragmentLocation.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/ApiEndpoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppConstants.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_bannerslider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="56" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Splash/SplashScreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetMvpPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c90fffd3ad1c3f8c16c7416a5da1416d/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/ProvidersRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2940">
+          <caret line="120" column="41" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/ApiHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivityPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/DI/Module/ActivityModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="157" column="44" selection-start-line="157" selection-start-column="44" selection-end-line="157" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DB/AppDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2220">
+          <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/MyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Intro/IntroActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Utils/AppUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_content.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_map.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/description_content.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2790">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Prefs/AppPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Android/Sdk/sources/android-26/android/app/SharedPreferencesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7140">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Data/Network/AppApiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/DatePickerRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2944">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#21998#22250#0" expanded="true" />
+            <element signature="e#22249#22250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Main/BottomSheetFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/alrefa/android/com/homefit/Ui/Base/BaseBottomSheetFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -24,8 +24,6 @@ public class MyApplication extends Application {
     @Inject
     SchedulerProvider schedulerProvider;
 
-    @Inject
-    DaoSession daoSession;
 
 
     @Inject
@@ -33,6 +31,8 @@ public class MyApplication extends Application {
     @Inject
     CalligraphyConfig mCalligraphyConfig;
 
+    @Inject
+    DaoSession daoSession;
     private ApplicationComponent mApplicationComponent;
 
     @Override
